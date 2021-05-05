@@ -13,13 +13,12 @@ void QAlphaEditLine::bindToData(uint32_t* pdwAlpha, uint32_t* pdwMask)
 			index
 		);
 	}
-
 }
 
 QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask)
 	:QWidget(parent)
 	, m_pdwAlpha(pdwAlpha)
-	, m_pdwMask(pdwMask)	
+	, m_pdwMask(pdwMask)
 {
 	setupUi(this);
 
@@ -28,11 +27,11 @@ QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pd
 	comboBoxKnownValues->addItem("Alpha on", (uint32_t)1);
 	comboBoxKnownValues->addItem("Uknown Value", (uint32_t)20000);
 	comboBoxKnownValues->addItem("Not Set: Error!", (uint32_t)10000);
-	
+
 	comboBoxKnownValues->setCurrentIndex(
 		comboBoxKnownValues->findData(10000)
 	);
-	
+
 	lineEditFlagValue->setText(std::to_string(*pdwAlpha).c_str());
 
 	//connect(comboBoxKnownValues, &QComboBox::textActivated, this,  &QAlphaEditLine::onTextActivated);
@@ -40,41 +39,57 @@ QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pd
 		[this](const QString& qstr)
 		{
 			if (m_pdwAlpha)
-			{				
+			{
 				*m_pdwAlpha = qstr.toUInt();
 
 				int index = comboBoxKnownValues->findData(*m_pdwAlpha);
 
 				if (index == -1)
 					comboBoxKnownValues->setCurrentIndex(
-						comboBoxKnownValues->findData(20000)
+					comboBoxKnownValues->findData(20000)
 					);
 				else
-				comboBoxKnownValues->setCurrentIndex(
+					comboBoxKnownValues->setCurrentIndex(
 					index
-				);
-
-			
-
+					);
 			}
-	
 		}
 	);
-	
+
+	connect(lineEditFlagValue, &QLineEdit::textChanged, this,
+		[this](const QString& qstr)
+		{
+			if (m_pdwAlpha)
+			{
+				*m_pdwAlpha = qstr.toUInt();
+
+				//int index = comboBoxKnownValues->findData(*m_pdwAlpha);
+
+				//if (index == -1)
+				//	comboBoxKnownValues->setCurrentIndex(
+				//	comboBoxKnownValues->findData(20000)
+				//	);
+				//else
+				//	comboBoxKnownValues->setCurrentIndex(
+				//	index
+				//	);
+			}
+		}
+	);
+
 	//connect(comboBoxKnownValues, qOverload<int>(&QComboBox::activated),  this,  &QAlphaEditLine::onActivated);
-	
+
 	// handle "pick new value in combobox" event
 	connect(comboBoxKnownValues, qOverload<int>(&QComboBox::activated),
 		[this](int index)
 		{
 			uint32_t data = comboBoxKnownValues->itemData(index).toUInt();
-			lineEditFlagValue->setText(std::to_string(data).c_str());		
+			lineEditFlagValue->setText(std::to_string(data).c_str());
 
 			if (index == 2) // unknown value
 				lineEditFlagValue->setText("000");
-		}	
+		}
 	);
-
 
 	if (m_pdwAlpha)
 	{
@@ -84,8 +99,6 @@ QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pd
 			index
 		);
 	}
-
-	
 }
 
 QAlphaEditLine::~QAlphaEditLine()
@@ -94,9 +107,7 @@ QAlphaEditLine::~QAlphaEditLine()
 
 void QAlphaEditLine::onTextActivated(const QString& text)
 {
-	
 	int debug_1 = 10;
-
 }
 
 void QAlphaEditLine::onActivated(int index)
@@ -104,5 +115,4 @@ void QAlphaEditLine::onActivated(int index)
 	uint32_t data = comboBoxKnownValues->itemData(index).toUInt();
 	lineEditFlagValue->setText(std::to_string(data).c_str());
 	int debug_1 = 10;
-
 }

@@ -62,6 +62,9 @@ bool getRMV2Data(QWidget* source, QByteArray* destBuffer)
 		return false;
 	}
 
+	destBuffer->clear();
+	destBuffer->resize(Exporter->m_spoStream->m_vecBuffer.size());
+
 	memcpy(destBuffer->data(), Exporter->m_spoStream->m_vecBuffer.data(), destBuffer->size());
 
 	return true;

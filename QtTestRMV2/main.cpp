@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
 
 
             QByteArray qBuffer;            
-            getRMV2Data(g_poRmv2, &qBuffer);
+            bool result = getRMV2Data(g_poRmv2, &qBuffer);
 
             ofstream fileOut(qstrPath.toStdWString(), ios::binary);
             fileOut.write(qBuffer.data(), qBuffer.size());
