@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog_Preference</class>
+ <widget class="QDialog" name="Dialog_Preference">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>822</width>
+    <height>422</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>4</number>
+     </property>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Rome 2</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>Game Folder</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <item row="6" column="4">
+             <widget class="QPushButton" name="pushButton_22">
+              <property name="text">
+               <string>Add Folder....</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="3">
+             <widget class="QPushButton" name="pushButton_21">
+              <property name="text">
+               <string>Remove Folder</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="2">
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>Clear All</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="5" column="0" colspan="5">
+             <widget class="QListWidget" name="listWidget_12">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>E:\SteamLibrary\steamapps\common\Total War WARHAMMER II</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>f:\pack files</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>c:\mods\props\pakc</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>f:\modds\project1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>d:\modds\project2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>e:\modds\project1</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Atttila</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox_5">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>798</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Game Folder</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_14">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <item row="6" column="4">
+           <widget class="QPushButton" name="pushButton_25">
+            <property name="text">
+             <string>Add Folder....</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="3">
+           <widget class="QPushButton" name="pushButton_26">
+            <property name="text">
+             <string>Remove Folder</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QPushButton" name="pushButton_11">
+            <property name="text">
+             <string>Clear All</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="0" colspan="5">
+           <widget class="QListWidget" name="listWidget_14">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>E:\SteamLibrary\steamapps\common\Total War Attila</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>f:\modds\project1</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>Thrones</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox_6">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>798</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Game Folder</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_15">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <item row="6" column="4">
+           <widget class="QPushButton" name="pushButton_27">
+            <property name="text">
+             <string>Add Folder....</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="3">
+           <widget class="QPushButton" name="pushButton_28">
+            <property name="text">
+             <string>Remove Folder</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QPushButton" name="pushButton_12">
+            <property name="text">
+             <string>Clear All</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="0" colspan="5">
+           <widget class="QListWidget" name="listWidget_15">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>E:\SteamLibrary\steamapps\common\Total War Attila</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>f:\modds\project1</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_6">
+      <attribute name="title">
+       <string>Warhammer I</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox_7">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>798</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Game Folder</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_16">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <item row="6" column="4">
+           <widget class="QPushButton" name="pushButton_29">
+            <property name="text">
+             <string>Add Folder....</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="3">
+           <widget class="QPushButton" name="pushButton_30">
+            <property name="text">
+             <string>Remove Folder</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QPushButton" name="pushButton_19">
+            <property name="text">
+             <string>Clear All</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="0" colspan="5">
+           <widget class="QListWidget" name="listWidget_16">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>E:\SteamLibrary\steamapps\common\Total War Attila</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>f:\modds\project1</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_7">
+      <attribute name="title">
+       <string>Warhammer II</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string>Game Folder</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_22">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <item row="6" column="4">
+             <widget class="QPushButton" name="pushButton_45">
+              <property name="text">
+               <string>Add Folder....</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="3">
+             <widget class="QPushButton" name="pushButton_46">
+              <property name="text">
+               <string>Remove Folder</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="2">
+             <widget class="QPushButton" name="pushButton_47">
+              <property name="text">
+               <string>Clear All</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <spacer name="horizontalSpacer_11">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="5" column="0" colspan="5">
+             <widget class="QListWidget" name="listWidget_22">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>E:\SteamLibrary\steamapps\common\Total War WARHAMMER II</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>f:\pack files</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>c:\mods\props\pakc</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>f:\modds\project1</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>d:\modds\project2</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>e:\modds\project1</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_8">
+      <attribute name="title">
+       <string>Three Kingsdoms</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_9">
+      <attribute name="title">
+       <string>Troy</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QCheckBox" name="checkBox">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Load Pack Files at Startup</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

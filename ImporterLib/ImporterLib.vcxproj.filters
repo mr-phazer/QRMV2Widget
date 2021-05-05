@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\7z">
+      <UniqueIdentifier>{f5cf5ef8-8295-423c-b632-9f40d385c7e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RigidModelV2">
+      <UniqueIdentifier>{73d2ed74-6c2e-4041-bed4-a5ca9530a0d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IAnimImporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelFileStructs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IRigidModelmporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelConst.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LODHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pack_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pack_file_structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pack_structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh_structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="half.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bone_table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IAnimExporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimFIle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="anim_structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelV2_Containers.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelV2_Data_Structs.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelV2_Enums.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelV2_Errors.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelV2_MeshStructs.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelV2_Reader.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidModelV2_Writer.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ImporterLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IAnimImporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidModelConst.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidModelFileStructs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LODHeader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IRigidModelmporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pack_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pack_file_structs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zAlloc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zArcIn.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zBuf.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zBuf2.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zCrc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zCrcOpt.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zDec.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zFile.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Util\7z\7zMain.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\7zStream.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Aes.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\AesOpt.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Alloc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Bcj2.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Bcj2Enc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Bra.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Bra86.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\BraIA64.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\CpuArch.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Delta.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\DllSecur.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\LzFind.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\LzFindMt.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\lzma.cpp">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="lzma_file.cpp">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Lzma2Dec.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Lzma2Enc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Lzma86Dec.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Lzma86Enc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\LzmaDec.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\LzmaEnc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\LzmaLib.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Util\LzmaLib\LzmaLibExports.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Util\Lzma\LzmaUtil.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\MtCoder.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Ppmd7.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Ppmd7Dec.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Ppmd7Enc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Util\7z\Precomp.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Util\SfxSetup\Precomp.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Sha256.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Sort.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Threads.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\Xz.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\XzCrc64.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\XzCrc64Opt.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\XzDec.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\XzEnc.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="..\7z\XzIn.c">
+      <Filter>Source Files\7z</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh_structs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bone_table.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IAnimExporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="anim_structs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidModelV2_Data_Structs.cpp">
+      <Filter>RigidModelV2</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidModelV2_Reader.cpp">
+      <Filter>RigidModelV2</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidModelV2_Writer.cpp">
+      <Filter>RigidModelV2</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\7z\7zVersion.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="..\7z\Util\LzmaLib\resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="..\7z\Util\SfxSetup\resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\7z\Util\LzmaLib\LzmaLib.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
