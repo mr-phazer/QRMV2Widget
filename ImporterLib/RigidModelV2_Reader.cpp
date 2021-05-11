@@ -127,6 +127,7 @@ bool RigidModelV2::File_Importer_Common::readGroupBlock(size_t _lod, size_t _gro
 
 	m_spoData->vecLODs[_lod].vecGroups[_group].oExtraMaterialBlock.vecExtraMaterialData.clear();
 
+	//if (false)
 	if (extra)
 	{
 		_log_action("Reading " + to_string(extra) + " addtional bytes of material data");
@@ -146,6 +147,12 @@ bool RigidModelV2::File_Importer_Common::readGroupBlock(size_t _lod, size_t _gro
 	}
 
 	//m_spoData->vecLODs[_lod].vecGroups[_group].cleanUpMesh();
+	/*size_t index_now = m_spoStream->tellp();
+	size_t read2 = m_spoStream->tellp() - first_index;
+
+	size_t skip = m_spoData->vecLODs[_lod].vecGroups[_group].oPreHeader.dwGroupSize - read2;
+
+	m_spoStream->seek_relative(skip - 940);*/
 
 	if ((*m_spoData)[_lod][_group].oPreHeader.RigidMaterialId == ERigidMaterial::decal_dirtmap)
 		int i = 1;
@@ -311,6 +318,9 @@ bool RigidModelV2::File_Importer_Common::readVertexBlock_Raw(size_t _lod, size_t
 
 	size_t vertex_data_size = oGroupBlock.getDataSizeVertices();
 
+	if (vertex_data_size == 0)
+		return true;
+
 	/*oGroupBlock.oPreHeader.dwVertexData_TextAndAttach_BlockSize -
 	oGroupBlock.oPreHeader.uiTextureAndAttchmentBlockSize;*/
 
@@ -380,6 +390,11 @@ bool RigidModelV2::File_Importer_Common::readVertexBlock_Raw(size_t _lod, size_t
 bool RigidModelV2::File_Importer_Common::readIndices(size_t _lod, size_t _group)
 {
 	auto& ref_vecIndices = m_spoData->vecLODs[_lod].vecGroups[_group].oMeshBlock.vecIndices;
+
+	if (m_spoData->vecLODs[_lod].vecGroups[_group].oPreHeader.dwIndexCount == 0)
+	{
+		return true;
+	}
 
 	ref_vecIndices.resize(m_spoData->vecLODs[_lod].vecGroups[_group].oPreHeader.dwIndexCount);
 

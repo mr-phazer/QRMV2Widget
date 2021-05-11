@@ -457,11 +457,17 @@ size_t RigidModelV2::Common::GroupBlock::getVertexSize()
 
 size_t RigidModelV2::Common::GroupBlock::calculateVertexSize()
 {
-	vertex_size = (
-		oPreHeader.dwVertexData_TextAndAttach_BlockSize -
-		oPreHeader.uiTextureAndAttchmentBlockSize
-		) / oPreHeader.dwVertexCount;
-
+	if (oPreHeader.dwVertexCount == 0)
+	{
+		vertex_size = 0;
+	}
+	else
+	{
+		vertex_size = (
+			oPreHeader.dwVertexData_TextAndAttach_BlockSize -
+			oPreHeader.uiTextureAndAttchmentBlockSize
+			) / oPreHeader.dwVertexCount;
+	}
 	return vertex_size;
 }
 
