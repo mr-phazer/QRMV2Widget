@@ -78,6 +78,7 @@ bool SystemLib::DataStream::open(const std::string& _strFilePath)
 		return true;
 	}
 
+	setCurrentAddress();
 	file.close();
 	return false;
 }
@@ -109,6 +110,7 @@ bool SystemLib::DataStream::open(const std::wstring& _strFilePath)
 		return true;
 	}
 
+	setCurrentAddress();
 	file.close();
 	return false;
 }
@@ -137,6 +139,8 @@ bool SystemLib::DataStream::open(const std::string& _strFilePath, size_t _bytes)
 		file.close();
 		return true;
 	}
+
+	setCurrentAddress();
 
 	file.close();
 	return false;
@@ -167,6 +171,8 @@ bool SystemLib::DataStream::open(const std::wstring& _strFilePath, size_t _bytes
 		return true;
 	}
 
+	setCurrentAddress();
+
 	file.close();
 	return false;
 }
@@ -191,6 +197,7 @@ bool SystemLib::DataStream::open_from_memory(const void* _pSrcMem, size_t _eleme
 
 	m_bisValid = true;
 
+	setCurrentAddress();
 	return m_bisValid;
 }
 
@@ -198,6 +205,8 @@ bool SystemLib::DataStream::clearAndReset()
 {
 	m_vecBuffer.clear();
 	m_index = 0;
+
+	setCurrentAddress();
 	return true;
 }
 
@@ -217,6 +226,7 @@ bool SystemLib::DataStream::readMem(void* _pDestMem, size_t _elements)
 
 	m_index += _elements;
 
+	setCurrentAddress();
 	return true;
 }
 
@@ -229,6 +239,7 @@ bool SystemLib::DataStream::writeMem(void* _pSrcMem, size_t _elements)
 
 	m_index += _elements;
 
+	setCurrentAddress();
 	return true;
 }
 
@@ -246,6 +257,7 @@ size_t SystemLib::DataStream::write_file(const std::wstring& _strFilePath)
 
 	file.write((char*)m_vecBuffer.data(), m_vecBuffer.size());
 
+	setCurrentAddress();
 	return m_vecBuffer.size();
 }
 
@@ -259,6 +271,7 @@ SystemLib::EStreamFlags SystemLib::DataStream::seek_relative(int _offset)
 	if (m_index >= m_vecBuffer.size())
 		return EStreamFlags::eEndOfStream;
 
+	setCurrentAddress();
 	return EStreamFlags::eSuccess;
 }
 
@@ -272,6 +285,7 @@ SystemLib::EStreamFlags SystemLib::DataStream::seek_absolute(size_t _offset)
 
 	m_index = _offset;
 
+	setCurrentAddress();
 	return EStreamFlags::eSuccess;
 }
 

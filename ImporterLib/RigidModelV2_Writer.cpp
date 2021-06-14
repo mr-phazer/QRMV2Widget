@@ -220,7 +220,8 @@ bool RigidModelV2::File_Exporter_Common::writeGroupHeaderDefaultWeighted(size_t 
 
 	auto first = m_spoStream->tellp();
 
-	m_spoStream->writeMem(&SubMeshPreHeader.szShaderName, 12);
+	SubMeshPreHeader.strShaderName.resize(12);
+	m_spoStream->writeMem(&SubMeshPreHeader.strShaderName[0], 12);
 	m_spoStream->writeMem(&SubMeshPreHeader.oFlags, sizeof(SubMeshPreHeader.oFlags));
 	m_spoStream->writeMem(&SubMeshPreHeader.VertexFormatId, sizeof(SubMeshPreHeader.VertexFormatId));
 	m_spoStream->writeMem(&SubMeshPreHeader.szGroupName, 32);

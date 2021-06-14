@@ -232,9 +232,6 @@ bool RigidModelV2::File_Importer_Common::readMeshHeader(size_t _lod, size_t _gro
 	case ERigidMaterial::unknown1:
 		return RigidModelV2::File_Importer_Common::readMeshHeader_Unknown1(_lod, _group);
 
-
-		// TODO: 8 bytes (mask and alpha, maybe?) are read too much in one of these, masking it crash, find out which one, 
-		// and/or is it a another material not yet in switch block
 	case ERigidMaterial::custom_terrain:
 		return RigidModelV2::File_Importer_Common::readMeshHeader_CustomTerrain(_lod, _group);
 

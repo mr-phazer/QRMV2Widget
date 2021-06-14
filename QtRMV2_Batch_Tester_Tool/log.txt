@@ -1,0 +1,137 @@
+
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/animated_rigids/chs_teeth_ring_anim.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: building
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 1
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 2
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/campaign/chariots/cam_bch1/grn/grn_orc_warboss_boar_chariot/grn_boar1_body_01.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: campaignboarchariot01
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ERROR!: Cannot get RMV2 file from imporer (fie == NULL)
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/campaign/chariots/cam_bch1/grn/grn_orc_warboss_boar_chariot/grn_boar2_body_01.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: campaignboarchariot01
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ERROR!: Cannot get RMV2 file from imporer (fie == NULL)
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/campaign/chariots/cam_bch1/grn/grn_orc_warboss_boar_chariot/grn_orc_boyz_body_01.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: campaignboarchariot01
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ERROR!: Cannot get RMV2 file from imporer (fie == NULL)
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/campaign/chariots/cam_bch1/grn/grn_orc_warboss_boar_chariot/grn_orc_warboss_boar_chariot_01.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: campaignboarchariot01
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ERROR!: Cannot get RMV2 file from imporer (fie == NULL)
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/campaign/chariots/cam_cbc1/def/def_death_hag_cauldron_of_blood/def_cauldron_of_blood_01.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: campaignbloodcauldron01
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 1
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 2
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/campaign/chariots/cam_cbc1/def/def_death_hag_cauldron_of_blood/def_witch_elf_01.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: campaignbloodcauldron01
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 1
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 2
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Starting
+ACTION: Reader File: e:/modding/wh2/vanilla/art/campaign/chariots/cam_cbc1/def/def_death_hag_cauldron_of_blood/def_witch_elf_02.rigid_model_v2
+ACTION: Attemt To Set TO Widget...
+ACTION: reading RMVV2 file header
+ACTION: File Has 1 LODs
+ACTION: Skeleton: campaignbloodcauldron01
+ACTION: LOD 0group 0
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 1
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: 4294966348 extra bytes for material uknown material!(20000)
+ACTION: LOD 0group 2
+ACTION: 
+ACTION: Ridig_Material: uknown material!(20000)

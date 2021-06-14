@@ -1,7 +1,7 @@
 #include "QConsole.h"
 //#include "constants.h"
-#include <qdesktopwidget.h>
-#include <qapplication.h>
+#include <QtWidgets/qdesktopwidget.h>
+#include <QtWidgets/qapplication.h>
 #include <fstream>
 
 QConsole* g_poConsole = nullptr;
@@ -11,6 +11,18 @@ QConsole::QConsole(QWidget* parent) :
 {
 	setWindowTitle("Log Window");
 
+	std::ofstream oOutFile;
+	oOutFile.open(L"log.txt", std::ios::app);
+
+	std::string strDate = __DATE__ + std::string(" : ");
+	strDate += __TIME__;
+
+	oOutFile << "-----------------------------------------------" << std::endl;
+	oOutFile << "'Qt RME' Log" << std::endl;
+	oOutFile << strDate << std::endl;
+	oOutFile << "-----------------------------------------------" << std::endl;
+
+	oOutFile.close();
 	/*setWindowFlag(Qt::Popup);
 	setWindowFlag(Qt::Tool);
 	setWindowFlag(Qt::PopupFocusReason);*/
@@ -92,6 +104,10 @@ void QConsole::write(const std::string& _str, const std::string& _color, const s
 	this->textCursor().insertHtml(strTemp.c_str());
 	//this->textCursor().insertHtml("<p style=\"color:white;white-space:pre\">" + QString("testing") + "</p>");
 	moveCursor(QTextCursor::End);
+
+	//oOutFile.open(L"log.txt", std::ios::app);
+	//oOutFile << _str;
+	//oOutFile.close();
 }
 
 void QConsole::writeLn(const std::string& _str, const std::string& _color, const std::string& _bg, size_t size)
@@ -126,7 +142,7 @@ void _create_console(QWidget* parent)
 	g_poConsole = new QConsole(parent);
 }
 
-void impl__log_action2(const std::string& _strMsg, bool _bSuccess)
+void _log_action2(const std::string& _strMsg, bool _bSuccess)
 {
 	g_poConsole->writeLn();
 	g_poConsole->write("ACTION:", "white", "blue", 4);
@@ -150,13 +166,14 @@ void impl__log_action2(const std::string& _strMsg, bool _bSuccess)
 	}
 }
 
-void impl__log_action(const std::string& _strMsg)
+void _impl__log_action(const std::string& _strMsg)
 {
 	/*std::ofstream logFile("log.txt", std::ios::app);;
 	logFile << "ACTION: ";
 	logFile << _strMsg.c_str();
 	logFile << std::endl;*/
 
+#if 0
 	g_poConsole->writeLn();
 	g_poConsole->write("ACTION:", "white", "blue", 4);
 
@@ -164,16 +181,21 @@ void impl__log_action(const std::string& _strMsg)
 	g_poConsole->write("&#160;", "white", "black", 4);
 
 	g_poConsole->write((_strMsg).c_str(), "white", "black", 4);
+#endif
+
+	std::ofstream oOutFile(L"log.txt", std::ios::app);
+	oOutFile << std::endl << "ACTION: " << _strMsg;
+	oOutFile.close();
 }
 
-void _log_action_success(const std::string& _strMsg)
+void _impl__log_action_success(const std::string& _strMsg)
 {
 	/*std::ofstream logFile("log.txt", std::ios::app);;
 	logFile << "SUCCESS: ";
 	logFile << _strMsg.c_str();
 	logFile << std::endl;*/
 
-	g_poConsole->writeLn();
+	/*g_poConsole->writeLn();
 	g_poConsole->write("ACTION:", "white", "blue", 4);
 
 	g_poConsole->write("&#160;", "white", "black", 4);
@@ -182,43 +204,55 @@ void _log_action_success(const std::string& _strMsg)
 
 	g_poConsole->write("&#160;", "white", "black", 4);
 	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write("Success.", "white", "green", 4);
+	g_poConsole->write("Success.", "white", "green", 4);*/
+
+	std::ofstream oOutFile(L"log.txt", std::ios::app);
+	oOutFile << std::endl << "ACTION: " << _strMsg << ". Success.";
+	oOutFile.close();
 }
 
-bool impl__log_action_error(const std::string& _strMsg)
+bool _impl__log_action_error(const std::string& _strMsg)
 {
 	/*std::ofstream logFile("log.txt", std::ios::app);;
 	logFile << "Error: ";
 	logFile << _strMsg.c_str();
 	logFile << std::endl;*/
 
-	g_poConsole->writeLn();
-	g_poConsole->write("ACTION:", "white", "blue", 4);
+	//g_poConsole->writeLn();
+	//g_poConsole->write("ERROR:", "white", "red", 4);
 
-	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
 
-	g_poConsole->write((_strMsg).c_str(), "white", "black", 4);
+	//g_poConsole->write((_strMsg).c_str(), "white", "black", 4);
 
-	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write("Error!", "white", "red", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write("Error!", "white", "red", 4);
+
+	std::ofstream oOutFile(L"log.txt", std::ios::app);
+	oOutFile << std::endl << "ERROR!: " << _strMsg;
+	oOutFile.close();
 
 	return false;
 }
 
-bool _log_action_warning(const std::string& _strMsg)
+bool _impl__log_action_warning(const std::string& _strMsg)
 {
-	g_poConsole->writeLn();
-	g_poConsole->write("ACTION:", "white", "blue", 4);
+	//g_poConsole->writeLn();
+	//g_poConsole->write("Warning:", "white", "purple", 4);
 
-	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write((_strMsg).c_str(), "white", "black", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write((_strMsg).c_str(), "white", "black", 4);
 
-	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write("&#160;", "white", "black", 4);
-	g_poConsole->write("Success.", "white", "green", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write("&#160;", "white", "black", 4);
+	//g_poConsole->write("Success.", "white", "green", 4);
+
+	std::ofstream oOutFile(L"log.txt", std::ios::app);
+	oOutFile << std::endl << "Warning: " << _strMsg;
+	oOutFile.close();
 
 	//g_poConsole->writeLn();
 	//g_poConsole->write("ACTION:", "white", "blue", 4);
@@ -230,8 +264,8 @@ bool _log_action_warning(const std::string& _strMsg)
 	return false;
 }
 
-void _log_write(const std::string& _strMsg)
+void _impl__log_write(const std::string& _strMsg)
 {
-	g_poConsole->write(_strMsg, "black", "gray", 4);
-	g_poConsole->writeLn();
+	//	g_poConsole->write(_strMsg, "black", "gray", 4);
+	//	g_poConsole->writeLn();
 }

@@ -5,6 +5,7 @@
 #include "RigidModelV2_Data_Structs.h"
 
 #include <string>
+#include "RigidModelV2_Validator.h"
 
 namespace RigidModelV2
 {
@@ -17,13 +18,23 @@ namespace RigidModelV2
 	class File_Importer_Common
 	{
 		// private constructor, class can only by instantiataed by "create()"
+		std::string m_strLastErrorString = "not set";
 	public:
+		bool ErrorString(const std::string& _error);
+
 		static std::shared_ptr<RigidModelV2::File_Importer_Common> create(void* pSrcMem, size_t _size_in_bytes);
 		static std::shared_ptr<RigidModelV2::File_Importer_Common> create(const std::wstring& _strPath);
 
 		std::shared_ptr <Common::CommonFile> getFile();
 
+		operator bool() {
+			return m_bIsValid;
+		};
+
+		RMV2_Validator oValidDator;
+
 	private:
+		bool m_bIsValid = false;
 		File_Importer_Common() {};
 		bool read();
 
@@ -46,15 +57,18 @@ namespace RigidModelV2
 
 		// BEGIN: group read methods
 
-		bool readGroupBlock(size_t _lod, size_t _group);
+		bool readMeshBlock(size_t _lod, size_t _group);
 
-		bool readGroupHeader(size_t _lod, size_t _group);
+		bool readMeshHeader(size_t _lod, size_t _group);
 
-		bool readGroupPreHeader(size_t _lod, size_t _group);
+		bool readMeshPreHeader(size_t _lod, size_t _group);
+		bool readMeshHeader(ERigidMaterial _eRigidMaterial, size_t _lod, size_t _group);
 
-		bool readGroupHeaderDefaultWeighted(size_t _lod, size_t _group);
-
-		bool readGroupHeader(ERigidMaterial _eRigidMaterial, size_t _lod, size_t _group);
+		bool readMeshHeader_Default_Weighted(size_t _lod, size_t _group);
+		bool readMeshHeader_Weighted_Texture_Blend(size_t _lod, size_t _group);
+		bool readMeshHeader_AlphaBlend(size_t _lod, size_t _group);
+		bool readMeshHeader_Unknown1(size_t _lod, size_t _group);
+		bool readMeshHeader_CustomTerrain(size_t _lod, size_t _group);
 
 		bool readAttachmentPointBlock_V6_V7_V8(size_t _lod, size_t _group);
 		bool readAttachmentPointBlock_V5(size_t _lod, size_t _group);
@@ -62,7 +76,7 @@ namespace RigidModelV2
 		bool readTextureBlock_V6_V7_V8(size_t _lod, size_t _group);
 		bool readTextureBlock_V5(size_t _lod, size_t _group);
 
-		bool readVertexBlock_Raw(size_t _lod, size_t _group);
+		bool readVertexBlock_Weighter_Default_Raw(size_t _lod, size_t _group);
 
 		//bool readVertices_Static(size_t _lod, size_t _group);
 		//bool readVertices_Weighted(size_t _lod, size_t _group);

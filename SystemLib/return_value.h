@@ -6,7 +6,7 @@
 #include "Object.h"
 #include "data_stream.h"
 #include <comdef.h>
-#include <QtCore/qstring.h>
+#include <QtCore\qstring.h>
 
 using namespace std;
 

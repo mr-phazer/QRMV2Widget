@@ -80,11 +80,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\Qt\5.15.2\msvc2019_64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>C:\Qt\5.15.2\msvc2019_64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>E:\qt\5.15.2\msvc2019_64\include\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>C:\Qt\5.15.2\msvc2019_64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -187,7 +187,9 @@
     <ClInclude Include="RigidModelV2_Errors.h" />
     <ClInclude Include="RigidModelV2_MeshStructs.h" />
     <ClInclude Include="RigidModelV2_Reader.h" />
+    <ClInclude Include="RigidModelV2_Validator.h" />
     <ClInclude Include="RigidModelV2_Writer.h" />
+    <ClInclude Include="string_constants.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\7z\7zAlloc.c" />
@@ -259,6 +261,7 @@
     <ClCompile Include="RigidModelFileStructs.cpp" />
     <ClCompile Include="RigidModelV2_Data_Structs.cpp" />
     <ClCompile Include="RigidModelV2_Reader.cpp" />
+    <ClCompile Include="RigidModelV2_Validator.cpp" />
     <ClCompile Include="RigidModelV2_Writer.cpp" />
   </ItemGroup>
   <ItemGroup>

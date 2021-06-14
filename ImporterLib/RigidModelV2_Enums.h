@@ -90,6 +90,8 @@ enum  ERigidMaterial : uint32_t
 	global_terrain = 98,
 	decal_overlay = 99,
 	alpha_blend = 100,
+	
+	unknown1 = 101,
 
 	eMAT_ERROR_NOT_SET = 20000
 };

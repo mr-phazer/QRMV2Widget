@@ -87,6 +87,12 @@
     <ClInclude Include="RigidModelV2_Writer.h">
       <Filter>RigidModelV2</Filter>
     </ClInclude>
+    <ClInclude Include="RigidModelV2_Validator.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
+    <ClInclude Include="string_constants.h">
+      <Filter>RigidModelV2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImporterLib.cpp">
@@ -283,6 +289,9 @@
     </ClCompile>
     <ClCompile Include="RigidModelV2_Writer.cpp">
       <Filter>RigidModelV2</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidModelV2_Validator.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

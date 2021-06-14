@@ -149,10 +149,7 @@ namespace RigidModelV2
 		//float16 textcord_u2;
 		//float16 textcord_v2; // 16
 
-		uint8_t normal_x;
-		uint8_t normal_y;
-		uint8_t normal_z;
-		uint8_t normal_w; // 20
+		
 
 		DirectX::PackedVector::XMUBYTE4 normal;
 

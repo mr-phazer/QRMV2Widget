@@ -81,9 +81,9 @@ void RigidModelV2::Common::MeshBlock::unpackAs_Default(size_t _vertex_size, Simp
 		// "shortcut" to dest vertex
 		auto& pv2 = vecVertices[i];
 
-		pv2.position.x = (pv1_RAW->position.x + _vPivot.x);
-		pv2.position.y = (pv1_RAW->position.y + _vPivot.y);
-		pv2.position.z = (pv1_RAW->position.z + _vPivot.z);
+		pv2.position.x = (pv1_RAW->position.x);
+		pv2.position.y = (pv1_RAW->position.y);
+		pv2.position.z = (pv1_RAW->position.z);
 
 		//auto mRotate = SimpleMath::Matrix::CreateRotationX(XM_PI / 2) * SimpleMath::Matrix::CreateRotationZ(XM_PI);
 		//pv2.position = SimpleMath::Vector3::Transform(pv2.position, mRotate);
@@ -98,8 +98,9 @@ void RigidModelV2::Common::MeshBlock::unpackAs_Default(size_t _vertex_size, Simp
 		pv2.uv.x = pv1_RAW->uv1.x;
 		pv2.uv.y = pv1_RAW->uv1.y;
 
-		/*pv2.tex2.x = pv1_RAW->uv2.x;
-		pv2.tex2.y = pv1_RAW->uv2.y;*/
+		XMFLOAT2 TEST_uv2 = { 0,0 };
+		TEST_uv2.x = pv1_RAW->uv2.x;
+		TEST_uv2.y = pv1_RAW->uv2.y;
 
 		pv2.normal.x = lib3d::unorm8_to_float(pv1_RAW->normal.x);
 		pv2.normal.y = lib3d::unorm8_to_float(pv1_RAW->normal.y);
@@ -173,7 +174,7 @@ void RigidModelV2::Common::MeshBlock::unpackAs_Weighted2_V5_V6_V7(size_t _vertex
 		pv2.tangent.x = lib3d::unorm8_to_float(pv1_RAW->tangent.x);
 		pv2.tangent.y = lib3d::unorm8_to_float(pv1_RAW->tangent.y);
 		pv2.tangent.z = lib3d::unorm8_to_float(pv1_RAW->tangent.z);
-		//pv2.tangent.w = lib3d::unorm8_to_float(pv1_RAW->tangent.w);
+		//pv2.tangent.w = lib3d::unorm8_to_float(pv1_RAW->tangent.w);d
 
 		pv2.bitangent.x = lib3d::unorm8_to_float(pv1_RAW->bitangent.x);
 		pv2.bitangent.y = lib3d::unorm8_to_float(pv1_RAW->bitangent.y);
@@ -488,6 +489,14 @@ size_t RigidModelV2::Common::GroupBlock::getDataSizeIndices()
 		oPreHeader.dwIndexCount * 2U;
 }
 
+size_t RigidModelV2::Common::GroupBlock::getMeshHeaderSize()
+{
+	return oPreHeader.uiTextureAndAttchmentBlockSize -
+		Common::TextureElement::_size_v6_v7_v8 * oSubMeshHeader.dwTextureCount -
+		Common::AttachmentPointTableEntry::_size_v6_v7_v8 * oSubMeshHeader.dwAttachmentPointCount
+		- 8;
+}
+
 size_t RigidModelV2::Common::GroupBlock::updateGroupFields_v6_v7_v8()
 {
 	// set new values for mesh
@@ -589,15 +598,15 @@ void RigidModelV2::Common::GroupBlock::simplifyGroup(float _threshold, float _er
 
 	lod_indices.resize(
 		meshopt_simplify(
-		&lod_indices[0],
-		&oMeshBlock.vecIndices[0],
-		oMeshBlock.vecIndices.size(),
-		&mesh_vertices[0].px,
-		mesh_vertices.size(),
-		sizeof(Vertex),
-		target_index_count,
-		_error
-	));
+			&lod_indices[0],
+			&oMeshBlock.vecIndices[0],
+			oMeshBlock.vecIndices.size(),
+			&mesh_vertices[0].px,
+			mesh_vertices.size(),
+			sizeof(Vertex),
+			target_index_count,
+			_error
+		));
 
 	lod_vertices.resize(lod_indices.size() < mesh_vertices.size() ? lod_indices.size() : mesh_vertices.size()); // note: this is just to reduce the cost of resize()
 
@@ -741,15 +750,15 @@ void RigidModelV2::Common::GroupBlock::cleanUpMesh()
 
 	lod_indices.resize(
 		meshopt_simplify(
-		&lod_indices[0],
-		&oMeshBlock.vecIndices[0],
-		oMeshBlock.vecIndices.size(),
-		&mesh_vertices[0].px,
-		mesh_vertices.size(),
-		sizeof(Vertex),
-		target_index_count,
-		target_error
-	));
+			&lod_indices[0],
+			&oMeshBlock.vecIndices[0],
+			oMeshBlock.vecIndices.size(),
+			&mesh_vertices[0].px,
+			mesh_vertices.size(),
+			sizeof(Vertex),
+			target_index_count,
+			target_error
+		));
 
 	//oMeshBlock.vecIndices = lod_indices;
 

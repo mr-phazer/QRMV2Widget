@@ -10,10 +10,10 @@
 
 namespace RigidModelV2
 {
+	constexpr static uint32_t RMV2_SIGNATURE = 0x32564D52;
+
 	struct FileInfoHeader_V5_V6_V7_V8
 	{
-		constexpr static uint32_t RMV2_SIGNATURE = 0x32564D52;
-
 		union _Signature {
 			char szSignature[4];		// Should always be "RMV2"
 			uint32_t dwSignature = 0;	// the 32 bit numberical eqauivalent for "RV2" = 0x32564D52
@@ -133,7 +133,7 @@ namespace RigidModelV2
 			float fGroupMaximumZ = 1.7f;*/
 
 			// offset 48
-			char  szShaderName[12] = "";		// shader name is zero terminated, paddded
+			std::string  strShaderName = "123456789123";		// shader name is zero terminated, paddded
 
 			// Unknown structure 16 and 20 bytes long have been encountered, 20 for most cases, only terrain meshes seem to be 16, unsure on how to detect size
 			// These values change when loading different types of model "weighted model" "weapon", "building"
@@ -262,6 +262,8 @@ namespace RigidModelV2
 			} oValues;
 
 			uint8_t Unknown140[140] = { 0 };	/// <value>Name accesses the value of the name data member</value>
+
+			std::vector<uint8_t> vecUnknownData;
 			//140 uint8_ts - ? // No idea.¨'
 		};
 
@@ -277,9 +279,9 @@ namespace RigidModelV2
 			// transformtion, scale, rotation, translation are used by the game, but vanilla model always (?) have this to indenity
 			DirectX::XMFLOAT3X4 o3x4Matrix =
 				DirectX::XMFLOAT3X4(
-				1, 0, 0, 0,
-				0, 1, 0, 0,
-				0, 0, 1, 0);
+					1, 0, 0, 0,
+					0, 1, 0, 0,
+					0, 0, 1, 0);
 
 			uint32_t dwBoneId = 0; // attachment point bne id, referes to a bone in the skeleton that something (props) can be attached to.
 		};
@@ -403,6 +405,8 @@ namespace RigidModelV2
 			size_t getDataSizeVertices();
 			size_t getDataSizeIndices();
 
+			size_t getMeshHeaderSize();
+
 			// updates the groupsize field, and returns new value
 			size_t updateGroupFields_v6_v7_v8();
 
@@ -456,7 +460,6 @@ namespace RigidModelV2
 					updateFileFields_v7_v8();
 				}
 			}
-
 		private:
 			void updateFileFields_v5_v6();
 			void updateFileFields_v7_v8();
