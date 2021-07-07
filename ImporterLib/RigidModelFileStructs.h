@@ -173,9 +173,9 @@ namespace ImporterLib
 
 			void set(const std::string& _strBoneName, uint32_t uiID, DirectX::XMFLOAT3X4 _3x4matrix =
 				DirectX::XMFLOAT3X4(
-				1, 0, 0, 0,
-				0, 1, 0, 0,
-				0, 0, 1, 0)
+					1, 0, 0, 0,
+					0, 1, 0, 0,
+					0, 0, 1, 0)
 			)
 			{
 				memset(this, 0, sizeof(AttachmentPointData));
@@ -246,9 +246,9 @@ namespace ImporterLib
 
 			DirectX::XMFLOAT3X4 o3x4Matrix =
 				DirectX::XMFLOAT3X4(
-				1, 0, 0, 0,
-				0, 1, 0, 0,
-				0, 0, 1, 0);
+					1, 0, 0, 0,
+					0, 1, 0, 0,
+					0, 0, 1, 0);
 
 			// 4 uint8_ts[UInt32] - SupplementarBoneID
 			uint32_t uiBoneId = 0;// 4 uint8_ts[UInt32] - SupplementarBoneID
@@ -386,11 +386,13 @@ namespace ImporterLib
 
 				//char str[5 * 4];
 
-				uint32_t flags1;
+				/*uint32_t flags1;
 				uint32_t flags2;
 				uint32_t flags3;
 				uint32_t flags4;
-				uint32_t flags5;
+				uint32_t flags5;*/
+
+				char data[40];
 
 				/*uint8_t flags1[4] = { 0 };
 				uint8_t flags2[4] = { 0 };
@@ -540,11 +542,7 @@ namespace ImporterLib
 				/*char a = 'v';
 				oOut.writeMem((char*)&a, 5 * 4);*/
 
-				_Out.writeMem((char*)&oFlags.flags1, 4);
-				_Out.writeMem((char*)&oFlags.flags2, 4);
-				_Out.writeMem((char*)&oFlags.flags3, 4);
-				_Out.writeMem((char*)&oFlags.flags4, 4);
-				_Out.writeMem((char*)&oFlags.flags5, 4);
+				_Out.writeMem((char*)&oFlags, 5 * 4);
 
 				_Out.writeMem((char*)&VertexFormatId, 2);
 				_Out.writeMem(szGroupName, 32);
@@ -626,11 +624,7 @@ namespace ImporterLib
 				/*char a = 'v';
 				oOut.readMem(&a, 5 * 4);*/
 
-				_Out.readMem(&oFlags.flags1, 4);
-				_Out.readMem(&oFlags.flags2, 4);
-				_Out.readMem(&oFlags.flags3, 4);
-				_Out.readMem(&oFlags.flags4, 4);
-				_Out.readMem(&oFlags.flags5, 4);
+				_Out.readMem((char*)&oFlags, 5 * 4);
 
 				_Out.readMem(&VertexFormatId, 2);
 				_Out.readMem(szGroupName, 32);
@@ -963,7 +957,7 @@ namespace ImporterLib
 
 				float fvertex_size =
 					((float)oHeader.uiVertexData_TextAndAttach_BlockTotalSize -
-					(float)oHeader.uiTextureAndAttchmentBlockSize)
+						(float)oHeader.uiTextureAndAttchmentBlockSize)
 					/ oHeader.uiVertextCount;
 
 				oMesh.vertex_size = fvertex_size;
@@ -993,7 +987,7 @@ namespace ImporterLib
 
 				float fvertex_size =
 					((float)oHeader.uiVertexData_TextAndAttach_BlockTotalSize -
-					(float)oHeader.uiTextureAndAttchmentBlockSize)
+						(float)oHeader.uiTextureAndAttchmentBlockSize)
 					/ oHeader.uiVertextCount;
 
 				float fVertexSizeCorrectlyCalculate = fvertex_size - ((size_t)fvertex_size);

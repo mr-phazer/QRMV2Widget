@@ -78,6 +78,7 @@ bool SystemLib::DataStream::open(const std::string& _strFilePath)
 		return true;
 	}
 
+	setCurrentAddress();
 	file.close();
 	return false;
 }
@@ -109,6 +110,7 @@ bool SystemLib::DataStream::open(const std::wstring& _strFilePath)
 		return true;
 	}
 
+	setCurrentAddress();
 	file.close();
 	return false;
 }
@@ -137,6 +139,8 @@ bool SystemLib::DataStream::open(const std::string& _strFilePath, size_t _bytes)
 		file.close();
 		return true;
 	}
+
+	setCurrentAddress();
 
 	file.close();
 	return false;
@@ -167,6 +171,8 @@ bool SystemLib::DataStream::open(const std::wstring& _strFilePath, size_t _bytes
 		return true;
 	}
 
+	setCurrentAddress();
+
 	file.close();
 	return false;
 }
@@ -191,6 +197,7 @@ bool SystemLib::DataStream::open_from_memory(const void* _pSrcMem, size_t _eleme
 
 	m_bisValid = true;
 
+	setCurrentAddress();
 	return m_bisValid;
 }
 
@@ -198,6 +205,8 @@ bool SystemLib::DataStream::clearAndReset()
 {
 	m_vecBuffer.clear();
 	m_index = 0;
+
+	setCurrentAddress();
 	return true;
 }
 
@@ -217,18 +226,77 @@ bool SystemLib::DataStream::readMem(void* _pDestMem, size_t _elements)
 
 	m_index += _elements;
 
+	setCurrentAddress();
 	return true;
+}
+
+bool SystemLib::DataStream::readSZ(std::string& _strOut)
+{
+	// clear the input string,
+	_strOut.clear();
+
+	// locl vars
+	char ch = '\0';
+	bool bResult = true;
+	do {
+		bResult = readMem(&ch, 1);
+		_strOut += ch;
+
+		if (!bResult)
+			return bResult;
+	} while (ch != '\0'); // break if EOF or NULL char encounterd
+
+	return true;
+}
+
+bool SystemLib::DataStream::readWSZ(std::wstring& _strOut)
+{
+	// clear the input string,
+	_strOut.clear();
+
+	// locl vars
+	wchar_t wch = L'\0';
+	bool bResult = true;
+	do {
+		bResult = readMem(&wch, 2);
+		_strOut += wch;
+
+		if (!bResult)
+			return bResult;
+	} while (wch != L'\0'); // break if EOF o,,r NULL char encounterd
+
+	return true;
+}
+
+bool SystemLib::DataStream::writeWSZ(std::wstring& _strOut)
+{
+	for (auto& wch : _strOut)
+	{
+		writeMem(&wch, 2);
+	}
+
+	auto wch_null = L'\0';
+	writeMem(&wch_null, 2);
+	return false;
 }
 
 bool SystemLib::DataStream::writeMem(void* _pSrcMem, size_t _elements)
 {
+	size_t bytes_to_read = _elements;
+
 	if (_elements + m_index >= m_vecBuffer.size())
-		m_vecBuffer.resize(_elements + m_index);
+	{
+		m_vecBuffer.resize(_elements + m_vecBuffer.size());
+
+		//size_t bytes_to_read = _elements - m_vecBuffer.size();/
+	}
+
+	//m_vecBuffer.resize(_elements + m_vecBuffer.size());
 
 	memcpy(&m_vecBuffer[m_index], _pSrcMem, _elements);
-
 	m_index += _elements;
 
+	setCurrentAddress();
 	return true;
 }
 
@@ -246,6 +314,7 @@ size_t SystemLib::DataStream::write_file(const std::wstring& _strFilePath)
 
 	file.write((char*)m_vecBuffer.data(), m_vecBuffer.size());
 
+	setCurrentAddress();
 	return m_vecBuffer.size();
 }
 
@@ -259,6 +328,7 @@ SystemLib::EStreamFlags SystemLib::DataStream::seek_relative(int _offset)
 	if (m_index >= m_vecBuffer.size())
 		return EStreamFlags::eEndOfStream;
 
+	setCurrentAddress();
 	return EStreamFlags::eSuccess;
 }
 
@@ -272,6 +342,7 @@ SystemLib::EStreamFlags SystemLib::DataStream::seek_absolute(size_t _offset)
 
 	m_index = _offset;
 
+	setCurrentAddress();
 	return EStreamFlags::eSuccess;
 }
 

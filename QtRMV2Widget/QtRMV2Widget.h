@@ -1,6 +1,9 @@
 #pragma once
 
 #include <memory>
+#include <qwidget>
+#include <qmimedata.h>
+#include <qdir.h>
 
 #include <QtWidgets/qwidget.h>
 #include <QtWidgets/qlineedit.h>
@@ -29,6 +32,56 @@ class QRMV2Widget : public QWidget, public Ui::QRMV2Widget
 public:
 	QRMV2Widget(QWidget* parent = Q_NULLPTR);
 	~QRMV2Widget();
+
+#ifdef _DEBUG
+
+	void dragEnterEvent(QDragEnterEvent* event)
+	{
+		// if some actions should not be usable, like move, this code must be adopted
+		event->acceptProposedAction();
+	}
+
+	void dragMoveEvent(QDragMoveEvent* event)
+	{
+		// if some actions should not be usable, like move, this code must be adopted
+		event->acceptProposedAction();
+	}
+
+	void dragLeaveEvent(QDragLeaveEvent* event)
+	{
+		event->accept();
+	}
+
+	void dropEvent(QDropEvent* event) override
+	{
+		auto poMimeData = event->mimeData();
+
+		auto text = poMimeData->text();
+		auto urls = poMimeData->urls();
+
+		wstring wstrFilePath = urls[0].toLocalFile().toStdWString();
+
+		auto spoImporter = RigidModelV2::File_Importer_Common::create(wstrFilePath);
+
+		event->accept();
+
+		if (!spoImporter)
+		{
+			return;
+		}
+
+		if (spoImporter->getFile())
+		{
+			setFile_New(spoImporter->getFile());
+			return;
+		}
+
+		return;
+
+		int debug_1 = 1;
+	}
+
+#endif // DEBUG
 
 	bool setFile(ImporterLib::RigidModel::IRigidModelFile*);
 	bool setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile);
@@ -60,6 +113,6 @@ protected:
 
 public:
 	QByteArray m_qtByteArray;
-	ImporterLib::RigidModel::IRigidModelFile* m_poFile = nullptr;
+	//ImporterLib::RigidModel::IRigidModelFile* m_poFile = nullptr;
 	shared_ptr<RigidModelV2::Common::CommonFile> m_poRMV2FileCommon = nullptr;
 };

@@ -3,6 +3,7 @@
 QRMV2Widget::QRMV2Widget(QWidget* parent)
 	: QWidget(parent)
 {
+	setAcceptDrops(true);
 	setupUi(this);
 
 	checkBox->setVisible(false);
@@ -116,8 +117,14 @@ bool QRMV2Widget::setFile(ImporterLib::RigidModel::IRigidModelFile* _poFileIput)
 
 bool QRMV2Widget::setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile)
 {
-	treeWidget->clear();
+	if (!_spoCommonFile)
+	{
+		return false;
+	}
+
 	m_poRMV2FileCommon = _spoCommonFile;
+
+	treeWidget->clear();
 
 	if (m_pPStackedWidget)
 	{
@@ -132,6 +139,29 @@ bool QRMV2Widget::setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoC
 	QTreeWidgetItem* pTopLevel = treeWidget->invisibleRootItem();
 	/*QTreeWidgetItem* pTopLevel = new QTreeWidgetItem({ "RMV2 Structure" });
 	treeWidget->addTopLevelItem(pTopLevel);*/
+	QLayoutItem* child;
+	while ((child = verticalLayout_ErrorMsg->takeAt(0)) != nullptr) {
+		delete child->widget(); // delete the widget
+		delete child;   // delete the layout item
+	}
+	if (m_poRMV2FileCommon->getLastErrorString() != "")
+	{
+		auto poLabel = new QLabel(m_poRMV2FileCommon->getLastErrorString().c_str(), this);
+
+		poLabel->setStyleSheet("color: white;"
+			"background-color: red;"
+			"font-size: 16px;"
+			"border-style: solid;"
+			"border-width: 2px;"
+			"border-radius: 10px;"
+			"border-style: solid;"
+			"border-color: white;"
+			"padding"
+		);
+
+		verticalLayout_ErrorMsg->insertWidget(0, poLabel);
+		return false;
+	}
 
 	insertFileHeader_New(pTopLevel);
 	insertLODHeaders_New(pTopLevel);
@@ -151,38 +181,41 @@ bool QRMV2Widget::setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoC
 
 		bool bItemSet = false;
 		// iterate through groups
-		for (size_t group = 0; group < m_poRMV2FileCommon->vecLODs[lod].vecGroups.size(); group++)
+		for (size_t group = 0; group < m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks.size(); group++)
 		{
-			auto pGroupItem = createMaterialViewTreeItem(pLodItem, string(m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oSubMeshHeader.szGroupName));
+			auto pGroupItem = createMaterialViewTreeItem(pLodItem, string(m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oSubMeshHeader.strMeshName));
 
 			// populate the material widget
 			int layout_offset = 0;
 			pGroupItem->m_pMaterialView = new QMaterialEditView();
 			size_t t = 0;
-			for (; t < m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oMaterialBlock.vecTextures.size(); t++)
+			for (; t < m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oMaterialBlock.vecTextures.size(); t++)
 			{
 				// create "texture edit line widget, bind the correct data
 				layout_offset = t;
 				pGroupItem->m_pMaterialView->addTextureLine(layout_offset,
-					&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oMaterialBlock.vecTextures[t].szTextureDirAndFileName,
-					&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oMaterialBlock.vecTextures[t].Type);
+					&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oMaterialBlock.vecTextures[t].szTextureDirAndFileName,
+					&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oMaterialBlock.vecTextures[t].Type);
 			}
 
 			// create "alpha edit line", bind it to the data it is to edit
 			auto pAlphaEditLine = pGroupItem->m_pMaterialView->addAlphaAditLine(
 				pGroupItem->m_pMaterialView,
-				&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oMaterialBlock.dwAlphaFlags,
-				&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oMaterialBlock.dwMaskFlags
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oMaterialBlock.dwAlphaFlags,
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oMaterialBlock.dwMaskFlags,
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oSubMeshHeader.strShaderName,
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oSubMeshHeader.strMeshName,
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oSubMeshHeader.strTextureDirectory
 			);
 			// and add it to the "material view" layout
 			pGroupItem->m_pMaterialView->verticalLayout_Alpha->insertWidget(t++, pAlphaEditLine);
 
 			// create group tree node and set propertiesonItemClicked
 			pGroupItem->m_pMaterialView->addGroupInfoWidget(t++,
-				&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oPreHeader.dwVertexCount,
-				&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oPreHeader.dwIndexCount,
-				&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oPreHeader.RigidMaterialId,
-				&m_poRMV2FileCommon->vecLODs[lod].vecGroups[group].oSubMeshHeader.VertexFormatId
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oPreHeader.dwVertexCount,
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oPreHeader.dwIndexCount,
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oPreHeader.RigidMaterialId,
+				&m_poRMV2FileCommon->vecLODs[lod].vecMeshBlocks[group].oSubMeshHeader.VertexFormatId
 			);
 
 			// add view to "widget stack"
@@ -451,7 +484,7 @@ void QRMV2Widget::insertLODHeaders_New(QTreeWidgetItem* _poParent)
 		//fontLodHeaderElement.setBold(true);
 		//pLODHeaderElementItem->setFont(0, fontLodHeaderElement);
 
-		QTreeWidgetItem* pGroupCountItem = new QTreeWidgetItem({ "Group Count: " + QString::number(m_poRMV2FileCommon->oLodHeaderBlock.vecElements[i].dwGroupCount) });
+		QTreeWidgetItem* pGroupCountItem = new QTreeWidgetItem({ "Group Count: " + QString::number(m_poRMV2FileCommon->oLodHeaderBlock.vecElements[i].dwMeshCount) });
 		pLODHeaderElementItem->addChild(pGroupCountItem);
 
 		QTreeWidgetItem* pZoomItem = new QTreeWidgetItem({ "Visibility Distance: " + QString::number(m_poRMV2FileCommon->oLodHeaderBlock.vecElements[i].fVisibilityDistance) });

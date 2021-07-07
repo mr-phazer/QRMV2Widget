@@ -15,10 +15,19 @@ void QAlphaEditLine::bindToData(uint32_t* pdwAlpha, uint32_t* pdwMask)
 	}
 }
 
-QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask)
-	:QWidget(parent)
+QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask,
+	std::string* pstrShaderName,
+	std::string* pstrMeshName,
+	std::string* pstrTexFolder
+)
+
+	: QWidget(parent)
 	, m_pdwAlpha(pdwAlpha)
 	, m_pdwMask(pdwMask)
+	, m_pstrShaderName(pstrShaderName)
+	, m_pstrMeshName(pstrMeshName)
+	, m_pstrTexFolder(pstrTexFolder)
+	 
 {
 	setupUi(this);
 
@@ -31,6 +40,8 @@ QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pd
 	comboBoxKnownValues->setCurrentIndex(
 		comboBoxKnownValues->findData(10000)
 	);
+
+	
 
 	lineEditFlagValue->setText(std::to_string(*pdwAlpha).c_str());
 
@@ -99,6 +110,15 @@ QAlphaEditLine::QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pd
 			index
 		);
 	}
+
+	// --- set the read only fields
+	lineEdit_MeshName->setText(m_pstrMeshName->c_str());
+	lineEdit_ShaderName->setText(m_pstrShaderName->c_str());
+	lineEdit_TextureFolder->setText(m_pstrTexFolder->c_str());		
+		
+	
+
+
 }
 
 QAlphaEditLine::~QAlphaEditLine()

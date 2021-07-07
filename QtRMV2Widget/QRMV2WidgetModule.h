@@ -33,3 +33,5 @@ extern "C"  bool getRMV2Data(QWidget * source, QByteArray * destBuffer); // used
 //	static extern map<QWidget*, QString> g_mapPerWidgetErrorStrings;
 //	static QString sm_qstrLastLibraryErrorString;
 //};
+
+extern "C"  bool getLastErrorString(QWidget * source, QString * str); // used to get data from the widget

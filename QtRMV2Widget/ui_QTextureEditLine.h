@@ -14,11 +14,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QToolButton>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,45 +24,58 @@ class Ui_QTextureEditLine
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_2;
-    QGridLayout *gridLayout_4;
     QCheckBox *checkBox;
-    QToolButton *toolButton;
     QComboBox *combonTextureType;
-    QLineEdit *lineEdit;
+    QComboBox *comboBox_TexturePath;
+    QToolButton *toolButton;
 
     void setupUi(QWidget *QTextureEditLine)
     {
         if (QTextureEditLine->objectName().isEmpty())
             QTextureEditLine->setObjectName(QString::fromUtf8("QTextureEditLine"));
-        QTextureEditLine->resize(919, 89);
+        QTextureEditLine->resize(919, 55);
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(QTextureEditLine->sizePolicy().hasHeightForWidth());
         QTextureEditLine->setSizePolicy(sizePolicy);
         horizontalLayout = new QHBoxLayout(QTextureEditLine);
-        horizontalLayout->setSpacing(7);
+        horizontalLayout->setSpacing(3);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(0);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, -1, 0, -1);
-        gridLayout_4 = new QGridLayout();
-        gridLayout_4->setSpacing(6);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        gridLayout_4->setSizeConstraint(QLayout::SetDefaultConstraint);
-        gridLayout_4->setHorizontalSpacing(5);
-        gridLayout_4->setVerticalSpacing(0);
-        gridLayout_4->setContentsMargins(4, 0, 4, 0);
+        horizontalLayout->setContentsMargins(1, 1, 1, 1);
         checkBox = new QCheckBox(QTextureEditLine);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(checkBox->sizePolicy().hasHeightForWidth());
+        checkBox->setSizePolicy(sizePolicy1);
         checkBox->setFocusPolicy(Qt::NoFocus);
         checkBox->setChecked(true);
 
-        gridLayout_4->addWidget(checkBox, 0, 0, 1, 1);
+        horizontalLayout->addWidget(checkBox);
+
+        combonTextureType = new QComboBox(QTextureEditLine);
+        combonTextureType->addItem(QString());
+        combonTextureType->setObjectName(QString::fromUtf8("combonTextureType"));
+        combonTextureType->setEnabled(false);
+        combonTextureType->setMinimumSize(QSize(95, 0));
+        combonTextureType->setMaximumSize(QSize(70, 16777215));
+        combonTextureType->setFocusPolicy(Qt::NoFocus);
+
+        horizontalLayout->addWidget(combonTextureType);
+
+        comboBox_TexturePath = new QComboBox(QTextureEditLine);
+        comboBox_TexturePath->setObjectName(QString::fromUtf8("comboBox_TexturePath"));
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(comboBox_TexturePath->sizePolicy().hasHeightForWidth());
+        comboBox_TexturePath->setSizePolicy(sizePolicy2);
+        comboBox_TexturePath->setEditable(true);
+
+        horizontalLayout->addWidget(comboBox_TexturePath);
 
         toolButton = new QToolButton(QTextureEditLine);
         toolButton->setObjectName(QString::fromUtf8("toolButton"));
@@ -79,36 +89,8 @@ public:
         toolButton->setAutoRaise(false);
         toolButton->setArrowType(Qt::NoArrow);
 
-        gridLayout_4->addWidget(toolButton, 0, 5, 1, 1);
+        horizontalLayout->addWidget(toolButton);
 
-        combonTextureType = new QComboBox(QTextureEditLine);
-        combonTextureType->addItem(QString());
-        combonTextureType->setObjectName(QString::fromUtf8("combonTextureType"));
-        combonTextureType->setEnabled(false);
-        combonTextureType->setMinimumSize(QSize(70, 0));
-        combonTextureType->setMaximumSize(QSize(70, 16777215));
-        combonTextureType->setFocusPolicy(Qt::NoFocus);
-
-        gridLayout_4->addWidget(combonTextureType, 0, 1, 1, 1);
-
-        lineEdit = new QLineEdit(QTextureEditLine);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setMouseTracking(true);
-        lineEdit->setMaxLength(255);
-        lineEdit->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        lineEdit->setClearButtonEnabled(false);
-
-        gridLayout_4->addWidget(lineEdit, 0, 4, 1, 1);
-
-
-        verticalLayout_2->addLayout(gridLayout_4);
-
-
-        horizontalLayout->addLayout(verticalLayout_2);
-
-        QWidget::setTabOrder(combonTextureType, lineEdit);
-        QWidget::setTabOrder(lineEdit, checkBox);
-        QWidget::setTabOrder(checkBox, toolButton);
 
         retranslateUi(QTextureEditLine);
 
@@ -122,16 +104,13 @@ public:
         checkBox->setToolTip(QCoreApplication::translate("QTextureEditLine", "Enable texture type editing", nullptr));
 #endif // QT_CONFIG(tooltip)
         checkBox->setText(QString());
-        toolButton->setText(QString());
-        combonTextureType->setItemText(0, QCoreApplication::translate("QTextureEditLine", "123123123123123", nullptr));
+        combonTextureType->setItemText(0, QString());
 
 #if QT_CONFIG(tooltip)
         combonTextureType->setToolTip(QCoreApplication::translate("QTextureEditLine", "Texture Type...", nullptr));
 #endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(tooltip)
-        lineEdit->setToolTip(QCoreApplication::translate("QTextureEditLine", "Interal .pack tesxture path (.DDS)", nullptr));
-#endif // QT_CONFIG(tooltip)
-        lineEdit->setPlaceholderText(QCoreApplication::translate("QTextureEditLine", "enter texture path", nullptr));
+        combonTextureType->setPlaceholderText(QCoreApplication::translate("QTextureEditLine", "texture type", nullptr));
+        toolButton->setText(QCoreApplication::translate("QTextureEditLine", "...", nullptr));
     } // retranslateUi
 
 };

@@ -47,17 +47,17 @@ bool getRMV2Data(QWidget* source, QByteArray* destBuffer)
 
 	if (!po)
 	{
-		*destBuffer = po->m_qtByteArray;
 		return false;
 	}
 
 	//SystemLib::DataStream oDataStream;
 	//po->m_poFile->write(oDataStream);
 
-	auto Exporter = RigidModelV2::File_Exporter_Common::create();
+	auto Exporter = RigidModelV2::File_Exporter_Common::create_empty();
 
 	if (!Exporter->setFile(po->m_poRMV2FileCommon))
 	{
+		// if there are any errors in building the edited file, simply return the unchanged input buffer
 		*destBuffer = po->m_qtByteArray;
 		return false;
 	}
@@ -68,4 +68,18 @@ bool getRMV2Data(QWidget* source, QByteArray* destBuffer)
 	memcpy(destBuffer->data(), Exporter->m_spoStream->m_vecBuffer.data(), destBuffer->size());
 
 	return true;
+}
+
+bool getLastErrorString(QWidget* source, QString* str)
+{
+	if (!str)
+	{
+		return false;
+	}
+
+	QRMV2Widget* po = dynamic_cast<QRMV2Widget*>(source);
+
+	*str = QString::fromStdString(
+		po->m_poRMV2FileCommon->getLastErrorString()
+	);
 }

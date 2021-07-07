@@ -5,15 +5,15 @@
 
 #include "RigidModelV2_Enums.h"
 #include "RigidModelV2_MeshStructs.h"
-
 //#include "..\RenderLib\vertex_layouts.h"
+#include "string_constants.h"
 
 namespace RigidModelV2
 {
+	constexpr static uint32_t RMV2_SIGNATURE = 0x32564D52;
+
 	struct FileInfoHeader_V5_V6_V7_V8
 	{
-		constexpr static uint32_t RMV2_SIGNATURE = 0x32564D52;
-
 		union _Signature {
 			char szSignature[4];		// Should always be "RMV2"
 			uint32_t dwSignature = 0;	// the 32 bit numberical eqauivalent for "RV2" = 0x32564D52
@@ -86,12 +86,68 @@ namespace RigidModelV2
 			wchar_t wszSkeletonId[128] = L"";
 		};
 
+		// TODO: finish this
+		static constexpr bool isKnownMaterial(ERigidMaterial _MaterialID)
+		{
+			switch (_MaterialID)
+			{
+			case ERigidMaterial::tree_billboard_material:
+				return false;
+
+			case ERigidMaterial::alpha_blend:
+				return false;
+
+			case ERigidMaterial::weighted_texture_blend:
+				return false;
+
+			case ERigidMaterial::unknown1:
+				return false;
+
+				// TODO: 8 bytes (mask and alpha, maybe?) are read too much in one of these, masking it crash, find out which one,
+				// and/or is it a another material not yet in switch block
+			case ERigidMaterial::custom_terrain:
+				return false;
+
+			case ERigidMaterial::weighted:
+				return true;
+
+			case ERigidMaterial::weighted_dirtmap:
+				return true;
+
+			case ERigidMaterial::weighted_decal:
+				return true;
+
+			case ERigidMaterial::weighted_decal_dirtmap:
+				return true;
+
+			case ERigidMaterial::weighted_skin:
+				return true;
+
+			case ERigidMaterial::weighted_skin_decal:
+				return true;
+
+			case ERigidMaterial::weighted_skin_dirtmap:
+				return true;
+
+			case ERigidMaterial::weighted_skin_decal_dirtmap:
+				return true;
+
+			case ERigidMaterial::decal_dirtmap:
+				return true;
+			case ERigidMaterial::default_material:
+				return true;
+
+			default:
+				return false;
+			}
+		}
+
 		struct LodHeaderElementCommon
 		{
 			static constexpr size_t size_v5_v6 = 5 * 4;
 			static constexpr size_t size_v7_v8 = 7 * 4;
 
-			uint32_t dwGroupCount = 0;
+			uint32_t dwMeshCount = 0;
 			uint32_t dwVerticesDataLength = 0;
 			uint32_t dwIndicesDataLength = 0;
 			uint32_t dwStartOffset = 0;
@@ -99,7 +155,8 @@ namespace RigidModelV2
 
 			uint32_t dwAuthoredLodNumber = 0;					// used in v8 and does some sort of counting of LOD headers, as LOD_HEADER[0].u1 = 0, LOD_HEADER[1].u1 = 1, and goes on like that
 
-			LodQualityLevel_V7_V8 oQualityLevel; // v7/v8 related to graphics setting "mesh quality"
+			//LodQualityLevel_V7_V8 oQualityLevel; // v7/v8 related to graphics setting "mesh quality"
+			uint32_t oQualityLevel; // v7/v8 related to graphics setting "mesh quality"
 		};
 
 		struct LodHeaderBlock
@@ -107,11 +164,11 @@ namespace RigidModelV2
 			std::vector<Common::LodHeaderElementCommon> vecElements;
 		};
 
-		struct GroupPreHeader
+		struct MeshPreHeader
 		{
 			ERigidMaterial RigidMaterialId = ERigidMaterial::eMAT_ERROR_NOT_SET;		// Indicates the material of the group, some material make the group chunk larger, which merits further discovery
 		// number of bytes from the start of this header to the begining of the next group (starting at the header)
-			uint32_t dwGroupSize = 0;	// Size of the entire group (header + attachment blocks + texture blocks + vertices + indices)
+			uint32_t dwMeshBlockSize = 0;	// Size of the entire group (header + attachment blocks + texture blocks + vertices + indices)
 
 			uint32_t uiTextureAndAttchmentBlockSize = 0; // The combined size of all attachment blocks and all texture blocks in current group
 			uint32_t dwVertexCount = 0;		// Count of vertices in group
@@ -123,7 +180,7 @@ namespace RigidModelV2
 			DirectX::XMFLOAT3 vMaxBB;
 		};
 
-		struct GroupHeader_Default_Weighted
+		struct MeshHeader
 		{
 			/*float fGroupMinimumX = 0.0f;;
 			float fGroupMinimumY = 0.0f;;
@@ -133,14 +190,15 @@ namespace RigidModelV2
 			float fGroupMaximumZ = 1.7f;*/
 
 			// offset 48
-			char  szShaderName[12] = "";		// shader name is zero terminated, paddded
+			std::string  strShaderName = "123456789123";		// shader name is zero terminated, paddded
+			std::wstring  wstrShaderName = L"123456789123";		// shader name is zero terminated, paddded
 
 			// Unknown structure 16 and 20 bytes long have been encountered, 20 for most cases, only terrain meshes seem to be 16, unsure on how to detect size
 			// These values change when loading different types of model "weighted model" "weapon", "building"
 			// but I dont know what it means exactly yet
 			struct _flags
 			{
-				// not clear on what these bytes mean, hence the test union, they have some relative no vertex type.
+				// not clear on what these bytes mean, hence the test union, they have some r____elative no vertex type.
 				// Though seems not be vertex size, even if that fits for two vertex types
 
 				//uint8_t flags1[4] = { 129, 5, 0, 0 }; // 32512; // 32512  for WH character model / weapons
@@ -152,12 +210,7 @@ namespace RigidModelV2
 
 				//char str[5 * 4];
 
-				uint32_t flags1;
-				uint32_t flags2;
-				uint32_t flags3;
-				uint32_t flags4;
-				uint32_t flags5;
-
+				char szFlags[60];
 				/*uint8_t flags1[4] = { 0 };
 				uint8_t flags2[4] = { 0 };
 				uint8_t flags3[4] = { 0 };
@@ -169,16 +222,18 @@ namespace RigidModelV2
 			//offset 80
 			EVertexFormat VertexFormatId = EVertexFormat::eERROR_NOT_SET;
 
-			char szGroupName[32] = "Box_01";		// First believed to be zero padded 32 char, but is not present at all in certain "obscure" RMV2 "sub formats"
+			std::string strMeshName = "";		// First believed to be zero padded 32 char, but is not present at all in certain "obscure" RMV2 "sub formats"
+			std::wstring wstrMeshName = L"";		// First believed to be zero padded 32 char, but is not present at all in certain "obscure" RMV2 "sub formats"
 			//wchar_t szwGroupName[32];	// utf-16 version of abovestd::string, seems only to be used in RMV2 version 5, (see File header)
 
 			// !!NOT!! part of file format
 
-			char szTextureDirectory[256] = "variantmeshes/_variantmodels/man/tex/";		// 256 uint8_ts[0 - Paddedstd::string] - TexturesDirectory
+			std::string strTextureDirectory = "";		// 256 uint8_ts[0 - Paddedstd::string] - TexturesDirectory
+			std::wstring wstrTextureDirectory = L"";		// 256 uint8_ts[0 - Paddedstd::string] - TexturesDirectory
 			//wchar_t wszTextureDirecory[256];		// 256 uint8_ts[0 - Paddedstd::string] - TexturesDirectory
 
 			// !!NOT!! part of file format
-			char uk_256[256];
+			char uk2_512[512];
 			// in building models it seems like this structs contains values with this types 8 times
 			//struct _S2
 			//{
@@ -250,7 +305,7 @@ namespace RigidModelV2
 			uint32_t dwAttachmentPointCount = 0;	// Count of weapon attachment points blocks
 			uint32_t dwTextureCount = 0;			// Count of texture info blocks in group
 
-			struct _values {
+			struct  _values {
 				uint32_t value1 = 0;	// 0
 				uint32_t value2 = 0;	// 0
 				uint32_t value3 = 1;	// 1
@@ -261,7 +316,8 @@ namespace RigidModelV2
 				uint32_t value8 = 0;	// 0
 			} oValues;
 
-			uint8_t Unknown140[140] = { 0 };	/// <value>Name accesses the value of the name data member</value>
+			static constexpr size_t UnknownDataSize = 140 - sizeof(_values);
+			std::vector<uint8_t> vecUnknownDataBuffer;
 			//140 uint8_ts - ? // No idea.¨'
 		};
 
@@ -271,15 +327,15 @@ namespace RigidModelV2
 			static size_t constexpr _size_v6_v7_v8 = 84; // (32) + (3 * 4 * 4) + 4;
 
 			// name of attachment point bone, has to be a bone from the skeleton referred to in the file header
-			char szAttachmentPointName[32];
-			wchar_t wszAttachmentPointName[32]; // for wide char / unicode, not yes supported
+			std::string szAttachmentPointName;
+			std::wstring wszAttachmentPointName; // for wide char / unicode, not yes supported
 
 			// transformtion, scale, rotation, translation are used by the game, but vanilla model always (?) have this to indenity
 			DirectX::XMFLOAT3X4 o3x4Matrix =
 				DirectX::XMFLOAT3X4(
-				1, 0, 0, 0,
-				0, 1, 0, 0,
-				0, 0, 1, 0);
+					1, 0, 0, 0,
+					0, 1, 0, 0,
+					0, 0, 1, 0);
 
 			uint32_t dwBoneId = 0; // attachment point bne id, referes to a bone in the skeleton that something (props) can be attached to.
 		};
@@ -333,7 +389,7 @@ namespace RigidModelV2
 			std::vector<AttachmentPointTableEntry> vecAttachmentPoints;
 		};
 
-		struct MeshBlock
+		struct MeshGeometryData
 		{
 			void packMesh();
 
@@ -364,9 +420,9 @@ namespace RigidModelV2
 			std::vector<uint8_t> vecExtraMaterialData;
 		};
 
-		struct GroupBlock
+		struct MeshBlock
 		{
-			void copy(const GroupBlock&);
+			void copy(const MeshBlock&);
 
 			/*
 			sets a new mesh for this group, and recalculates the group's header fields
@@ -403,6 +459,8 @@ namespace RigidModelV2
 			size_t getDataSizeVertices();
 			size_t getDataSizeIndices();
 
+			size_t getMeshHeaderSize();
+
 			// updates the groupsize field, and returns new value
 			size_t updateGroupFields_v6_v7_v8();
 
@@ -411,13 +469,13 @@ namespace RigidModelV2
 			void cleanUpMesh();
 
 		public:
-			GroupPreHeader oPreHeader;
-			GroupHeader_Default_Weighted oSubMeshHeader;
+			MeshPreHeader oPreHeader;
+			MeshHeader oSubMeshHeader;
 
 			AttachBlock oAttachBlock;
 			MaterialBlock oMaterialBlock;
 			ExtraMaterialDataBlock oExtraMaterialBlock;
-			MeshBlock oMeshBlock;
+			MeshGeometryData oMeshBlock;
 
 		private:
 			size_t vertex_size = 0;
@@ -433,13 +491,28 @@ namespace RigidModelV2
 			uint32_t getVertexDataSize();
 			uint32_t getIndexDataSize();
 
-			GroupBlock& operator[](size_t index)
+			MeshBlock& operator[](size_t index)
 			{
-				return vecGroups[index];
+				return vecMeshBlocks[index];
 			}
 
-			std::vector<GroupBlock> vecGroups;
+			std::vector<MeshBlock> vecMeshBlocks;
 			float fLodDistance = -1;
+		};
+
+		class Validator
+		{
+		public:
+			bool validateFileHeader(const Common::FileHeader* _poFileHeader);
+
+			bool validateLodHeader(const Common::LodHeaderElementCommon* _poFileHeader);
+
+			std::string validateMeshPreHeader(const RigidModelV2::Common::MeshPreHeader* _poFileHeader);
+			//bool validateSubMeshHeader(const RigidModelV2::Common::GroupHeader_Default_Weighted* _poFileHeader);
+
+			std::string strLastErrorString = "";
+
+			std::map<ERigidMaterial, bool> mapMaterialsLoaded;
 		};
 
 		struct CommonFile
@@ -456,13 +529,12 @@ namespace RigidModelV2
 					updateFileFields_v7_v8();
 				}
 			}
-
 		private:
 			void updateFileFields_v5_v6();
 			void updateFileFields_v7_v8();
 
 		public:
-			GroupBlock* getGroup(size_t _lod, size_t _group);
+			MeshBlock* getGroup(size_t _lod, size_t _group);
 
 			// makes it position to access lod/group byt [lod][group] as "group" alkso has an operator like this
 			LodBLock& operator[](size_t index)
@@ -474,6 +546,16 @@ namespace RigidModelV2
 			LodHeaderBlock oLodHeaderBlock;
 
 			std::vector<LodBLock> vecLODs;
+
+			bool isValid();
+			std::string getLastErrorString();
+
+			static bool ErrorString(std::shared_ptr<CommonFile> file, const std::string& _error);
+			Validator oValidator;
+
+			//private:
+			bool m_bIsValid = false;
+			std::string m_strLastErrorString = "no operation perfomed yet";
 		};
 	};
 };

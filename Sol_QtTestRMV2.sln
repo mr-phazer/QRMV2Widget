@@ -23,8 +23,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtRMV2Widget", "QtRMV2Widge
 		{E61FC787-89A9-4703-8CAC-037E56DB2499} = {E61FC787-89A9-4703-8CAC-037E56DB2499}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "meshopt", "meshopt\meshopt.vcxproj", "{56C51E2E-1C2A-4974-B58B-2519C193D410}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,14 +59,6 @@ Global
 		{55F0A739-2EB9-4514-B05C-0F3613E0E1DE}.Release|x64.ActiveCfg = Release|x64
 		{55F0A739-2EB9-4514-B05C-0F3613E0E1DE}.Release|x64.Build.0 = Release|x64
 		{55F0A739-2EB9-4514-B05C-0F3613E0E1DE}.Release|x86.ActiveCfg = Release|x64
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Debug|x64.ActiveCfg = Debug|x64
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Debug|x64.Build.0 = Debug|x64
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Debug|x86.ActiveCfg = Debug|Win32
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Debug|x86.Build.0 = Debug|Win32
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Release|x64.ActiveCfg = Release|x64
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Release|x64.Build.0 = Release|x64
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Release|x86.ActiveCfg = Release|Win32
-		{56C51E2E-1C2A-4974-B58B-2519C193D410}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

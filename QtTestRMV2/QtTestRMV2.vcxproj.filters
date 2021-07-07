@@ -42,7 +42,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="QCONSOLE.H">
+    <QtMoc Include="QConsole.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

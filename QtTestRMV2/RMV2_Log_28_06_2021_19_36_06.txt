@@ -1,0 +1,85 @@
+
+ACTION: Starting
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_a.rigid_model_v2
+ACTION: Creating importer...
+ACTION: reading RMV2 file header
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Signature: RMV2
+ACTION: File LODs: 4
+ACTION: File Skeleton: tree
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: SubGroup Material: tree
+ACTION: Subgroup Material (numerical value): 74
+ACTION: 
+ACTION: Ridig_Material: tree(74)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: LOD 0group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 1
+ACTION: SubGroup Material: tree_leaf
+ACTION: Subgroup Material (numerical value): 75
+ACTION: 
+ACTION: Ridig_Material: tree_leaf(75)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: SubGroup Material: tree
+ACTION: Subgroup Material (numerical value): 74
+ACTION: 
+ACTION: Ridig_Material: tree(74)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: LOD 1group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 1
+ACTION: SubGroup Material: tree_leaf
+ACTION: Subgroup Material (numerical value): 75
+ACTION: 
+ACTION: Ridig_Material: tree_leaf(75)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: SubGroup Material: tree
+ACTION: Subgroup Material (numerical value): 74
+ACTION: 
+ACTION: Ridig_Material: tree(74)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: LOD 2group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 1
+ACTION: SubGroup Material: tree_leaf
+ACTION: Subgroup Material (numerical value): 75
+ACTION: 
+ACTION: Ridig_Material: tree_leaf(75)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: LOD 3group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 3. Group: 0
+ACTION: SubGroup Material: tree_billboard_material
+ACTION: Subgroup Material (numerical value): 89
+ACTION: 
+ACTION: Ridig_Material: tree_billboard_material(89)
+ACTION: Attachmen Points: 0
+ACTION: Textures: 0
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 0
+ACTION: File Error Count: 0

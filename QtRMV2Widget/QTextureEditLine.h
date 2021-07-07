@@ -1,6 +1,8 @@
 #pragma once
 
 #include <QWidget>
+#include <qcombobox.h>
+
 #include <QMenu.h>
 #include "ui_QTextureEditLine.h"
 #include "..\ImporterLib\IRigidModelmporter.h"

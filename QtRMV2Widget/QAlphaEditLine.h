@@ -11,7 +11,12 @@ class QAlphaEditLine : public QWidget, public Ui::QAlphaEditLine
 public:
 	void bindToData(uint32_t* pdwAlpha, uint32_t* pdwMask);
 
-	QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask);
+	QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask,		
+		std::string* pstrShaderName,
+		std::string* pstrMeshName,
+		std::string* pstrTexFolder
+		);
+	
 	~QAlphaEditLine();
 
 	uint32_t getAlpha() {
@@ -28,6 +33,11 @@ public:
 protected:
 	uint32_t* m_pdwAlpha = nullptr;
 	uint32_t* m_pdwMask = nullptr;
+	std::string* m_pstrShaderName = nullptr;
+	std::string* m_pstrMeshName = nullptr;
+	std::string* m_pstrTexFolder = nullptr;
+
+
 
 private slots:
 	void onTextActivated(const QString& text);

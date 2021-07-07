@@ -41,6 +41,7 @@ public:
     QCheckBox *checkBox;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_ErrorMsg;
     QVBoxLayout *verticalLayout_LeftPanel;
     QVBoxLayout *verticalLayout_TextureList;
     QSpacerItem *verticalSpacer_2;
@@ -155,6 +156,12 @@ public:
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_ErrorMsg = new QVBoxLayout();
+        verticalLayout_ErrorMsg->setSpacing(6);
+        verticalLayout_ErrorMsg->setObjectName(QString::fromUtf8("verticalLayout_ErrorMsg"));
+
+        verticalLayout_4->addLayout(verticalLayout_ErrorMsg);
+
         verticalLayout_LeftPanel = new QVBoxLayout();
         verticalLayout_LeftPanel->setSpacing(6);
         verticalLayout_LeftPanel->setObjectName(QString::fromUtf8("verticalLayout_LeftPanel"));

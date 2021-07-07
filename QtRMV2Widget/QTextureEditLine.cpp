@@ -1,6 +1,7 @@
 #include "QTextureEditLine.h"
 
 #include "..\ImporterLib\RigidModelFileStructs.h"
+#include <qlineedit.h>
 
 QTextureEditLine::QTextureEditLine(QWidget* parent, std::string* _pstrTexturePath, ETextureType* _pETextureType)
 	: QWidget(parent)
@@ -15,9 +16,12 @@ QTextureEditLine::QTextureEditLine(QWidget* parent, std::string* _pstrTexturePat
 	{
 		combonTextureType->addItem(TextureType::getStringFromId(i), i);
 	}
+	this->toolButton->setText("");
+	
+	comboBox_TexturePath->lineEdit()->setText( m_pstrTexturePath->c_str() );
 
-	lineEdit->setText(m_pstrTexturePath->c_str());
-	lineEdit->setCursorPosition(0);
+	//comboBox_TexturePath->setCursorPosition(0);
+
 	// find the eNum in the control, by converting it to uint32
 	QVariant qv = (uint32_t)*_pETextureType;
 	int index = combonTextureType->findData(qv);
@@ -65,7 +69,8 @@ void QTextureEditLine::setTexture(std::pair<std::string*, ETextureType*> _pair)
 
 void QTextureEditLine::makeConnection()
 {
-	connect(lineEdit, &QLineEdit::editingFinished, this, &QTextureEditLine::onTextEditingFinshed);
+	connect(comboBox_TexturePath->lineEdit(), &QLineEdit::editingFinished, this, &QTextureEditLine::onTextEditingFinshed);
+	connect(comboBox_TexturePath->lineEdit(), &QLineEdit::textChanged, this, &QTextureEditLine::onTextEditingFinshed);
 }
 
 //void QTextureEditLine::bindToData(std::string* _strTexturePath, ETextureType* _pETextureType)
@@ -85,6 +90,8 @@ void QTextureEditLine::onTextEditingFinshed()
 {
 	if (m_pstrTexturePath)
 	{
-		*m_pstrTexturePath = lineEdit->text().toStdString().c_str();
+		*m_pstrTexturePath = comboBox_TexturePath->lineEdit()->text().toStdString();
+
+		auto debug_1 = 1;
 	}
 }

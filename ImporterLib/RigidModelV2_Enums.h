@@ -48,6 +48,7 @@ enum  ERigidMaterial : uint32_t
 	decal_waterfall = 31,
 	standard_simple = 32,
 	campaign_trees = 34,
+
 	point_light = 38,
 	static_point_light = 45,
 	debug_geometry = 46,
@@ -91,8 +92,16 @@ enum  ERigidMaterial : uint32_t
 	decal_overlay = 99,
 	alpha_blend = 100,
 
+	unknown1 = 101,
+
 	eMAT_ERROR_NOT_SET = 20000
 };
+
+inline static bool isRigidMaterialValid(ERigidMaterial _eMat)
+{
+	if (!(_eMat >= bow_wave && _eMat <= unknown1))
+		return false;
+}
 
 struct MaterialIdToHeaderSize
 {
@@ -159,6 +168,6 @@ static inline std::string getStringFrom_RigidMaterialId(ERigidMaterial ID)
 
 		//case ERigidMaterial::unknown:
 	default:
-		return "uknown material!";
+		return "uknown material. numeric value: " + std::to_string((uint32_t)ID);
 	}
 }

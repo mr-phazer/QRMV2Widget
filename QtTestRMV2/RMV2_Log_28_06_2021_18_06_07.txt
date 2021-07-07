@@ -1,0 +1,236 @@
+
+ACTION: Starting
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_a.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 0
+ACTION: File Error Count: 1
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_b.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 1
+ACTION: File Error Count: 2
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_c.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 2
+ACTION: File Error Count: 3
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_d.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 3
+ACTION: File Error Count: 4
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_e.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 4
+ACTION: File Error Count: 5
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/almond/almond_a.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 5
+ACTION: File Error Count: 6
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/almond/almond_b.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 6
+ACTION: File Error Count: 7
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/almond/almond_c.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 7
+ACTION: File Error Count: 8
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/almond/almond_d.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 8
+ACTION: File Error Count: 9
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/almond/almond_e.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 9
+ACTION: File Error Count: 10
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/beech/beech_a.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: tree
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 10
+ACTION: File Error Count: 11
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/beech/beech_b.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000

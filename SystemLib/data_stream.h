@@ -65,6 +65,23 @@ namespace SystemLib
 		bool clearAndReset();
 
 		bool readMem(void* _pDestMem, size_t _elements);
+		//bool readMem(void* _pDestMem, size_t _elements);
+
+		// read null terminated string
+		bool readSZ(std::string& _strOut);
+
+		// read null terminated wide string
+		bool readWSZ(std::wstring& _strOut);
+
+		// write null terminated string
+		bool writeSZ(std::string& _strOut);
+
+		// write null terminated wide string
+		bool writeWSZ(std::wstring& _strOut);
+
+		template <typename T>
+		bool readMem_As(T& _str);
+
 		bool writeMem(void* _pSourceMem, size_t _elements);
 
 		template <typename T>
@@ -82,7 +99,28 @@ namespace SystemLib
 		const uint8_t* data() const;
 		uint8_t* data();
 
+		uint8_t* pCurrentAddress = nullptr;
+
 	private:
+		void setCurrentAddress()
+		{
+			if (m_vecBuffer.size() == 0)
+			{
+				pCurrentAddress = nullptr;
+				return;
+			}
+
+			if (m_index < m_vecBuffer.size())
+			{
+				// if NOT after end of index set pointer
+				pCurrentAddress = &m_vecBuffer[m_index];
+			}
+			else
+			{// IF after end of index set pointer = END
+				pCurrentAddress = &m_vecBuffer[m_vecBuffer.size() - 1];
+			}
+		};
+
 	public:
 		std::vector<uint8_t> m_vecBuffer;
 		size_t m_index = 0;
@@ -90,6 +128,19 @@ namespace SystemLib
 
 		bool m_bisValid = false;
 	};
+
+	template<>
+	inline bool DataStream::readMem_As(std::string& _str)
+	{
+		char ch = '\0';
+		_str.clear();
+		do {
+			readMem(&ch, 1);
+			_str += ch;
+		} while (ch);
+
+		return true;
+	}
 
 	template<typename T>
 	inline bool DataStream::read(T* _pot)

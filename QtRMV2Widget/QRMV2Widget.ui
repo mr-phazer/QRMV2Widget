@@ -212,6 +212,9 @@
         <number>0</number>
        </property>
        <item>
+        <layout class="QVBoxLayout" name="verticalLayout_ErrorMsg"/>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="verticalLayout_LeftPanel">
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_TextureList">

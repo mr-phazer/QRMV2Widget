@@ -64,7 +64,10 @@ public:
 		m_poAlphaEditLine->setAlpha(_dwAlpha);
 	}
 
-	QAlphaEditLine* addAlphaAditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask);
+	QAlphaEditLine* addAlphaAditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask,
+		std::string* pstrShaderName,
+		std::string* pstrMeshName,
+		std::string* pstrTexFolder);
 
 	QGroupPropertiesPanel* addGroupPropertiesPanel();
 

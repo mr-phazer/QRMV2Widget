@@ -82,18 +82,25 @@ void QMaterialEditView::setTextures(vector<pair<string*, ETextureType*>> vecText
 	for (size_t i = 0; i < vecpTextureEditLine.size(); i++)
 	{
 		*vecpTextureEditLine[i]->m_pstrTexturePath = *vecTextures[i].first;
-		vecpTextureEditLine[i]->lineEdit->setText((*vecTextures[i].first).c_str());
+		vecpTextureEditLine[i]->comboBox_TexturePath->lineEdit()->setText((*vecTextures[i].first).c_str());
 		//*vecpTextureEditLine[i]->getTexture().second = *vecTextures[i].second;
-		vecpTextureEditLine[i]->lineEdit->update();
+		vecpTextureEditLine[i]->comboBox_TexturePath->lineEdit()->update();
 	}
 }
 
-QAlphaEditLine* QMaterialEditView::addAlphaAditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask)
+QAlphaEditLine* QMaterialEditView::addAlphaAditLine(
+	QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask,
+		std::string* pstrShaderName,
+		std::string* pstrMeshName,
+		std::string* pstrTexFolder)
 {
 	m_poAlphaEditLine = new QAlphaEditLine(
 		parent,
 		pdwAlpha,
-		pdwMask);
+		pdwMask,
+		pstrShaderName,
+		pstrMeshName,
+		pstrTexFolder);
 
 	return m_poAlphaEditLine;
 }

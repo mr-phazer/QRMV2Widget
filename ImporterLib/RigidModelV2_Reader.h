@@ -8,6 +8,9 @@
 
 namespace RigidModelV2
 {
+	// flags (in 32 bit "alpha" field)
+	const uint32_t SKIN_FALG = 1 << 30;
+
 	// interfaces
 	/*class IFile_Header_Reader
 	{
@@ -16,22 +19,34 @@ namespace RigidModelV2
 
 	class File_Importer_Common
 	{
-		// private constructor, class can only by instantiataed by "create()"
-	public:
+		// can only be called by the class itself
+		bool ErrorString(const std::string& _error);
+	public:		
+
 		static std::shared_ptr<RigidModelV2::File_Importer_Common> create(void* pSrcMem, size_t _size_in_bytes);
 		static std::shared_ptr<RigidModelV2::File_Importer_Common> create(const std::wstring& _strPath);
 
 		std::shared_ptr <Common::CommonFile> getFile();
 
+		bool isValid() {
+			return m_bIsValid;
+		};
+
 	private:
-		File_Importer_Common() {};
+		bool m_bIsValid = false;
+		//File_Importer_Common() {};
 		bool read();
+
+		bool checkEntireFile();
+
+		bool readFileHeaderAndLodBlocks();
 
 		/************************************************************************************
 			File Headers
 		*************************************************************************************/
-		//bool readFileHeader_V5();
-		bool readFileHeader_V5_V6_V7_V8();
+		bool readFileInfoHeader_V5_V6_V7_V8();
+		bool readFileHeader_V5();
+		bool readFileHeader_V6_V7_V8();
 
 		/************************************************************************************
 			LOD Headers
@@ -46,15 +61,20 @@ namespace RigidModelV2
 
 		// BEGIN: group read methods
 
-		bool readGroupBlock(size_t _lod, size_t _group);
+		bool readMeshBlock(size_t _lod, size_t _group);
 
-		bool readGroupHeader(size_t _lod, size_t _group);
+		bool readMeshHeader(size_t _lod, size_t _group);
 
-		bool readGroupPreHeader(size_t _lod, size_t _group);
+		bool readMeshPreHeader(size_t _lod, size_t _group);
+		bool readMeshHeader(ERigidMaterial _eRigidMaterial, size_t _lod, size_t _group);
 
-		bool readGroupHeaderDefaultWeighted(size_t _lod, size_t _group);
+		bool readMeshHeader_Default_Weighted_v5(size_t _lod, size_t _group);
+		bool readMeshHeader_Default_Weighted_v6_v7_v8(size_t _lod, size_t _group);
 
-		bool readGroupHeader(ERigidMaterial _eRigidMaterial, size_t _lod, size_t _group);
+		bool readMeshHeader_Weighted_Texture_Blend(size_t _lod, size_t _group);
+		bool readMeshHeader_AlphaBlend(size_t _lod, size_t _group);
+		bool readMeshHeader_Unknown1(size_t _lod, size_t _group);
+		bool readMeshHeader_CustomTerrain(size_t _lod, size_t _group);
 
 		bool readAttachmentPointBlock_V6_V7_V8(size_t _lod, size_t _group);
 		bool readAttachmentPointBlock_V5(size_t _lod, size_t _group);
@@ -62,7 +82,7 @@ namespace RigidModelV2
 		bool readTextureBlock_V6_V7_V8(size_t _lod, size_t _group);
 		bool readTextureBlock_V5(size_t _lod, size_t _group);
 
-		bool readVertexBlock_Raw(size_t _lod, size_t _group);
+		bool readVertexBlock_STANDARD_Raw(size_t _lod, size_t _group);
 
 		//bool readVertices_Static(size_t _lod, size_t _group);
 		//bool readVertices_Weighted(size_t _lod, size_t _group);
@@ -84,6 +104,8 @@ namespace RigidModelV2
 		std::shared_ptr <Common::CommonFile> m_spoData;
 	};
 
+	static constexpr size_t _mesh_header_default_weighted_v6_v7_v8_length = 940;
+	static constexpr size_t _mesh_header_default_weighted_v5_length = 1468 + 48;
 	//class File_Exporter_Common
 	//{
 	//	/************************************************************************************
@@ -144,9 +166,9 @@ namespace RigidModelV2
 
 	class File_Processor_Commmon
 	{
-		static bool cleanupMesh(Common::MeshBlock* _poMeshBlock);
+		static bool cleanupMesh(Common::MeshGeometryData* _poMeshBlock);
 		static bool reduceMesh(
-			Common::MeshBlock* _poMeshBlock,
+			Common::MeshGeometryData* _poMeshBlock,
 			float _ratio = 1.0,
 			bool _bUseBrute = false,
 			float _error = 0.003);

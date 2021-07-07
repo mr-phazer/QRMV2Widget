@@ -1,0 +1,79 @@
+
+ACTION: Starting
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_a.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ERROR!: File Contains unknown RigidMaterial header(s)
+ERROR!: File Contains unknown RigidMaterial header(s)
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: File Contains unknown RigidMaterial header(s)
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 0
+ACTION: File Error Count: 1
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_b.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ERROR!: File Contains unknown RigidMaterial header(s)
+ERROR!: File Contains unknown RigidMaterial header(s)
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: File Contains unknown RigidMaterial header(s)
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 1
+ACTION: File Error Count: 2
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_c.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
+ERROR!: File Contains unknown RigidMaterial header(s)
+ERROR!: File Contains unknown RigidMaterial header(s)
+ACTION: Importer returned 'invalid'
+ACTION: Last Error String: File Contains unknown RigidMaterial header(s)
+ACTION: -------------------------------------------------------
+ACTION: File Read Count: 2
+ACTION: File Error Count: 3
+ACTION: -------------------------------------------------------
+ACTION: Opening File:E:/modding/Atilla_vanilla/battleterrain/vegetation/trees/acacia/acacia_d.rigid_model_v2
+ACTION: Creating importer...
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: Skeleton: tree
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 100.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 200.000000
+ACTION: SubMesh Count: 2
+ACTION: Lod Range: 400.000000
+ACTION: SubMesh Count: 1
+ACTION: Lod Range: 500.000000
