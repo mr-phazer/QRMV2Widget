@@ -45,9 +45,9 @@ namespace SystemLib
 
 		return_value(HRESULT _hrResult) {
 			_com_error err(_hrResult);
-			std::wstring wstrErrorMsg = err.ErrorMessage();
-
-			std::string strErrorMsg = QString::fromStdWString(wstrErrorMsg).toStdString();
+			//std::wstring wstrErrorMsg = err.ErrorMessage();
+			//std::string strErrorMsg = QString::fromStdWString(wstrErrorMsg).toStdString();
+			std::string strErrorMsg = std::string();
 
 			if (SUCCEEDED(_hrResult))
 				pairValue = { 0, strErrorMsg.c_str() };
