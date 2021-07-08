@@ -1,7 +1,7 @@
 #include "QTextureEditLine.h"
 
 #include "..\ImporterLib\RigidModelFileStructs.h"
-#include <qlineedit.h>
+#include <QtWidgets\QLineEdit>
 
 QTextureEditLine::QTextureEditLine(QWidget* parent, std::string* _pstrTexturePath, ETextureType* _pETextureType)
 	: QWidget(parent)

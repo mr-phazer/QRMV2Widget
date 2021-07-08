@@ -2,7 +2,8 @@
 
 #define CONSOLE_OUT
 
-#include <QtWidgets/qplaintextedit.h>
+#include <QtWidgets\QPlainTextEdit>
+#include <QtCore\QString>
 
 #include <fstream>
 

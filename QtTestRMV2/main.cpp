@@ -1,11 +1,11 @@
-#include <QtWidgets/QApplication>
-#include <qwidget.h>
+#include <QtWidgets\QApplication>
+#include <QtWidgets\QWidget>
 #include "main.h"
 #include <fstream>
-#include <qbytearray.h>
-#include <qshortcut.h>
-#include <qfiledialog.h>
-#include <qdiriterator.h>
+#include <QtCore\QByteArray>
+#include <QtWidgets\QShortCut>
+#include <QtWidgets\QFileDialog>
+#include <QtCore\qdiriterator.h>
 #include "QConsole.h"
 
 #define TESTING
