@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+    push:
+        branches: [ "test_actions"]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+        include:
+        - {os: windows-latest, TARGET: x86_64-pc-windows-msvc}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+
+      - name: Compile the lib
+        run: |
+          msbuild SystemLib\SystemLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /v:d /p:OutDir=D:\output
+          msbuild ImporterLib\ImporterLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /v:d /p:OutDir=D:\output
+          msbuild QtRMV2Widget\QtRMV2Widget.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
