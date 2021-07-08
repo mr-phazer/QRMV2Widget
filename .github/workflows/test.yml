@@ -22,6 +22,9 @@ jobs:
 
       - name: Compile the lib
         run: |
+          echo "INCLUDE=D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\include" >> $env:GITHUB_ENV
+          echo "LIB=D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Widgets.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Gui.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Core.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\qtmain.lib;" >> $env:GITHUB_ENV
+
           msbuild SystemLib\SystemLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /v:d /p:OutDir=D:\output
           msbuild ImporterLib\ImporterLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /v:d /p:OutDir=D:\output
           msbuild QtRMV2Widget\QtRMV2Widget.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
