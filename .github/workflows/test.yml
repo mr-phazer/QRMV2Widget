@@ -27,6 +27,8 @@ jobs:
 
       - name: Compile the lib
         run: |
+          mkdir D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\
+          mkdir D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\Release\
           msbuild SystemLib\SystemLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
           cp D:\output\SystemLib.lib D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\Release\
           msbuild ImporterLib\ImporterLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
