@@ -44,15 +44,21 @@ namespace SystemLib
 		}
 
 		return_value(HRESULT _hrResult) {
-			_com_error err(_hrResult);
-			std::wstring wstrErrorMsg = err.ErrorMessage();
+			// TODO: make this work for Frodo if needed
+			//_com_error err(_hrResult);
+			//std::wstring wstrErrorMsg = err.ErrorMessage();
 
-			std::string strErrorMsg = QString::fromStdWString(wstrErrorMsg).toStdString();
+			//std::string strErrorMsg = QString::fromStdWString(wstrErrorMsg).toStdString();
 
-			if (SUCCEEDED(_hrResult))
+			/*if (SUCCEEDED(_hrResult))
 				pairValue = { 0, strErrorMsg.c_str() };
 			else
-				pairValue = { -1, strErrorMsg.c_str() };
+				pairValue = { -1, strErrorMsg.c_str() };*/
+
+			if (SUCCEEDED(_hrResult))
+				pairValue = { 0, "Success" };
+			else
+				pairValue = { -1, "Failure" };
 		}
 
 		operator bool()

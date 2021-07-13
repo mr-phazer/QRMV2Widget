@@ -17,7 +17,7 @@ QRMV2Widget::~QRMV2Widget()
 	int debug_a = 1;
 }
 
-bool QRMV2Widget::setFile(ImporterLib::RigidModel::IRigidModelFile* _poFileIput)
+bool QRMV2Widget::setRigidModel(ImporterLib::RigidModel::IRigidModelFile* _poFileIput)
 {
 #if 0
 	treeWidget->clear();
@@ -115,7 +115,7 @@ bool QRMV2Widget::setFile(ImporterLib::RigidModel::IRigidModelFile* _poFileIput)
 	return true;
 }
 
-bool QRMV2Widget::setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile)
+bool QRMV2Widget::setData_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile)
 {
 	if (!_spoCommonFile)
 	{

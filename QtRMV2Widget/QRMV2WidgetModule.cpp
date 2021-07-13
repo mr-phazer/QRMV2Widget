@@ -34,7 +34,7 @@ bool setRMV2Data(QWidget* dest, const QByteArray* sourceBuffer)
 
 	if (spoImporter->getFile())
 	{
-		po->setFile_New(spoImporter->getFile());
+		po->setData_New(spoImporter->getFile());
 		return true;
 	}
 
@@ -55,7 +55,7 @@ bool getRMV2Data(QWidget* source, QByteArray* destBuffer)
 
 	auto Exporter = RigidModelV2::File_Exporter_Common::create_empty();
 
-	if (!Exporter->setFile(po->m_poRMV2FileCommon))
+	if (!Exporter->setFileData(po->m_poRMV2FileCommon))
 	{
 		// if there are any errors in building the edited file, simply return the unchanged input buffer
 		*destBuffer = po->m_qtByteArray;

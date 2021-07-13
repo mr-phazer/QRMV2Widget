@@ -555,7 +555,7 @@ namespace RigidModelV2
 
 			//private:
 			bool m_bIsValid = false;
-			std::string m_strLastErrorString = "no operation perfomed yet";
+			std::string m_strLastErrorString = "";
 		};
 	};
 };

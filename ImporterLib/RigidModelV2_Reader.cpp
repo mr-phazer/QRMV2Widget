@@ -76,6 +76,7 @@ bool RigidModelV2::File_Importer_Common::checkEntireFile()
 
 	if (!readFileHeaderAndLodBlocks())
 	{
+		_log_action("readFileHeaderAndLodBlocks() issue!");
 		return false;
 	}
 
@@ -87,10 +88,10 @@ bool RigidModelV2::File_Importer_Common::checkEntireFile()
 
 		if (real_offset != m_spoData->oLodHeaderBlock.vecElements[lod].dwStartOffset)
 		{
-			return RigidModelV2::Common::CommonFile::ErrorString(m_spoData,
-				"FATAL ERROR: LOD: " + to_string(lod) + " failed integrity test. + start offset mismatch"
+			_log_action("FATAL ERROR: LOD: " + to_string(lod) + " failed integrity test. Start offset incorrect.");
 
-			);
+			return RigidModelV2::Common::CommonFile::ErrorString(m_spoData,
+				"FATAL ERROR: LOD: " + to_string(lod) + " failed integrity test. Start offset incorrect.");
 		}
 
 		// skip drectly to a certain LOD, if needed
@@ -106,6 +107,9 @@ bool RigidModelV2::File_Importer_Common::checkEntireFile()
 			// (where the header lenght+contents is known and there is a working reader/writer for it)
 			if (!RigidModelV2::Common::isKnownMaterial(oMeshPreHeader.RigidMaterialId))
 			{
+				_log_action("RMV2 File Contains Yet - to - be - decoded RigidgMaterial Header : "
+					+ getStringFrom_RigidMaterialId(oMeshPreHeader.RigidMaterialId));
+
 				m_spoData->m_strLastErrorString = "RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: "
 					+ getStringFrom_RigidMaterialId(oMeshPreHeader.RigidMaterialId);
 
@@ -164,6 +168,8 @@ bool RigidModelV2::File_Importer_Common::readFileHeaderAndLodBlocks()
 			return false;
 		};
 	}
+
+	return true;
 }
 
 bool RigidModelV2::File_Importer_Common::readFileHeader_V5()

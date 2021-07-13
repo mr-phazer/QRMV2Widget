@@ -111,6 +111,8 @@ int main(int argc, char* argv[])
 #endif
 
 	auto  g_poRmv2 = createRMV2Widget(nullptr);
+	g_poRmv2->setWindowTitle("RPFM/Qt RME RigidModel Component Tester. OPEN: Ctrl+O / Drag+Drop,  SAVE: CTRL+S");
+
 	g_poRmv2->show();
 
 	QShortcut* qpShortcut_OpenFile = new QShortcut(QKeySequence(QRMV2Widget::tr("Ctrl+O", "File|Open")),

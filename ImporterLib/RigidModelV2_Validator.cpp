@@ -64,7 +64,7 @@ std::string RigidModelV2::Common::Validator::validateMeshPreHeader(const RigidMo
 
 	if (!isRigidMaterialValid(_poGroupPreHeader->RigidMaterialId))
 	{
-		return "Unknown Rigid_Material Id.";
+		return "Unknown Rigid_Material Id: " + getStringFrom_RigidMaterialId(_poGroupPreHeader->RigidMaterialId);
 	}
 
 	if (_poGroupPreHeader->dwVertexCount > 0xFFFF)

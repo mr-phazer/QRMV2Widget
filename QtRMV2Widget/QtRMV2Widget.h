@@ -6,7 +6,9 @@
 #include <qdir.h>
 
 #include <QtWidgets/qwidget.h>
-#include <QtWidgets/qlineedit.h>
+
+#include <QtWidgets/qwidget.h>
+#include <QtWidgets/qlineedit.h>½
 #include <QtWidgets/qtextedit.h>
 #include <QtWidgets/qFrame.h>
 #include <QtWidgets/qstackedwidget.h>
@@ -33,7 +35,7 @@ public:
 	QRMV2Widget(QWidget* parent = Q_NULLPTR);
 	~QRMV2Widget();
 
-#ifdef _DEBUG
+#ifndef _DEBUG1
 
 	void dragEnterEvent(QDragEnterEvent* event)
 	{
@@ -72,7 +74,7 @@ public:
 
 		if (spoImporter->getFile())
 		{
-			setFile_New(spoImporter->getFile());
+			setData_New(spoImporter->getFile());
 			return;
 		}
 
@@ -83,8 +85,8 @@ public:
 
 #endif // DEBUG
 
-	bool setFile(ImporterLib::RigidModel::IRigidModelFile*);
-	bool setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile);
+	bool setRigidModel(ImporterLib::RigidModel::IRigidModelFile*);
+	bool setData_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile);
 
 private slots:
 	void onItemClicked(QTreeWidgetItem* item, int column);

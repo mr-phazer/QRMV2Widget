@@ -190,7 +190,7 @@
        </size>
       </property>
       <property name="title">
-       <string>Material - Textuire Set:</string>
+       <string>Materials:</string>
       </property>
       <property name="checkable">
        <bool>false</bool>
