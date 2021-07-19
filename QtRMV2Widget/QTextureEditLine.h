@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QWidget>
+#include <QWidget.h>
 #include <qcombobox.h>
 
 #include <QMenu.h>

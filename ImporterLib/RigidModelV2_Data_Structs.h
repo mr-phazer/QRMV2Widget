@@ -114,6 +114,9 @@ namespace RigidModelV2
 			case ERigidMaterial::weighted_dirtmap:
 				return true;
 
+			case ERigidMaterial::decal:
+				return true;
+
 			case ERigidMaterial::weighted_decal:
 				return true;
 

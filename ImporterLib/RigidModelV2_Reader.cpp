@@ -304,51 +304,6 @@ bool RigidModelV2::File_Importer_Common::readMeshBlock(size_t _lod, size_t _grou
 		m_spoStream->readMem(&extra.vecExtraMaterialData[0], extra_size);
 	}
 
-	//	return true;
-
-	//auto& g = m_spoData->vecLODs[_lod].vecMeshBlocks[_group];
-	//_log_action("Attachmen Points: " + to_string(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwAttachmentPointCount));
-	//_log_action("Textures: " + to_string(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwTextureCount));
-	//size_t read = m_spoStream->tellp() - first_index;
-	////size_t header_size = 0;
-	////if (this->m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion == 5)
-	////{
-	////	header_size = m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.uiTextureAndAttchmentBlockSize -
-	////		Common::TextureElement::_size_v5 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwTextureCount -
-	////		Common::AttachmentPointTableEntry::_size_v5 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwAttachmentPointCount
-	////		- 8;
-	////}
-	////else
-	////{
-	////	header_size = m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.uiTextureAndAttchmentBlockSize -
-	////		Common::TextureElement::_size_v6_v7_v8 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwTextureCount -
-	////		Common::AttachmentPointTableEntry::_size_v6_v7_v8 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwAttachmentPointCount
-	////		- 8;
-	////}
-
-	//// read the extra data some material type put here. (calculate its length)
-
-	//size_t header_size =
-	//	(m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion == 5)
-	//	?
-	//	RigidModelV2::_mesh_header_default_weighted_v5_length
-	//	:
-	//	RigidModelV2::_mesh_header_default_weighted_v6_v7_v8_length;
-
-	//size_t extra_material_data_size = (m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.uiTextureAndAttchmentBlockSize - header_size) - read;
-
-	//m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oExtraMaterialBlock.vecExtraMaterialData.clear();
-
-	//if (extra_material_data_size)
-	//{
-	//	//_log_action(to_string(extra) + " extra bytes for material " + getStringFrom_RigidMaterialId(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.RigidMaterialId) +
-	//	//	string("(") + to_string(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.RigidMaterialId) + ")");
-
-	//	m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oExtraMaterialBlock.vecExtraMaterialData.resize(extra_material_data_size);
-
-	//	m_spoStream->readMem(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oExtraMaterialBlock.vecExtraMaterialData.data(), extra_material_data_size);
-	//}
-
 	switch (mesh.oPreHeader.RigidMaterialId)
 	{
 	case ERigidMaterial::alpha_blend: // "alpha_blend" material are a cuber
@@ -433,7 +388,7 @@ bool RigidModelV2::File_Importer_Common::readMeshHeader(size_t _lod, size_t _gro
 	}
 	default:
 		return RigidModelV2::File_Importer_Common::readMeshHeader_Default_Weighted_v6_v7_v8(_lod, _group);
-	}
+	}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 }
 
 bool RigidModelV2::File_Importer_Common::readMeshHeader(ERigidMaterial _eRigidMaterial, size_t _lod, size_t _group)
