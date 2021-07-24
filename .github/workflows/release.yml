@@ -36,7 +36,7 @@ jobs:
           cp D:\output\ImporterLib.lib D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\Release\
           msbuild QtRMV2Widget\QtRMV2Widget.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
 
-        name: Prepare Assets for Release
+      - name: Prepare Assets for Release
         run: |
           cd D:\output
           7z a qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }} .\**
