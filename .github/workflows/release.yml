@@ -1,0 +1,65 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+        include:
+        - { os: windows-latest, TARGET: x86_64-pc-windows-msvc, EXTENSION: zip, MIME: application/x-zip-compressed }
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+
+      - name: Setup vars
+        run: |
+          echo "INCLUDE=D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\include" >> $env:GITHUB_ENV
+          echo "LIB=D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Widgets.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Gui.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Core.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\qtmain.lib;" >> $env:GITHUB_ENV
+
+      - name: Compile the lib
+        run: |
+          mkdir D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\
+          mkdir D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\Release\
+          msbuild SystemLib\SystemLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
+          cp D:\output\SystemLib.lib D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\Release\
+          msbuild ImporterLib\ImporterLib.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
+          cp D:\output\ImporterLib.lib D:\a\QRMV2Widget\QRMV2Widget\QtRMV2Widget\x64\Release\
+          msbuild QtRMV2Widget\QtRMV2Widget.vcxproj /t:Build /p:Configuration=Release /p:Platform=x64 /p:OutDir=D:\output
+
+        name: Prepare Assets for Release
+        run: |
+          cd D:\output
+          7z a qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }} .\**
+
+      # Create release step is common for all OS.
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release QtRMV2 Widget${{ github.ref }}
+          draft: true
+          prerelease: true
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: D:/output/qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }
+          asset_name: qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }
+          asset_content_type: ${{ matrix.MIME }}
