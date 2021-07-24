@@ -28,7 +28,7 @@ int BatchTest()
 
 	string strFíleName = "RMV2_Log_" + strTime + ".txt";
 
-	g_qstrLogFileName = strFíleName.c_str();
+	//g_qstrLogFileName = strFíleName.c_str();
 
 	//QCoreApplication a();
 

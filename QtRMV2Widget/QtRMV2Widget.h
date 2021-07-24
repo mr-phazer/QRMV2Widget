@@ -8,8 +8,7 @@
 #include <QtWidgets/qwidget.h>
 
 #include <QtWidgets/qwidget.h>
-#include <QtWidgets/qlineedit.h>½
-#include <QtWidgets/qtextedit.h>
+#include <QtWidgets/qlineedit.h>
 #include <QtWidgets/qFrame.h>
 #include <QtWidgets/qstackedwidget.h>
 #include <QtWidgets/qmessagebox.h>
