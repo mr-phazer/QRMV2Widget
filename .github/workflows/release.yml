@@ -27,6 +27,8 @@ jobs:
 
       - name: Setup vars
         run: |
+          echo "QtMsBuild=D:\a\QRMV2Widget\QRMV2Widget\QtMsBuild" >> $env:GITHUB_ENV
+          echo "QtToolsPath=D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\bin" >> $env:GITHUB_ENV
           echo "INCLUDE=D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\include" >> $env:GITHUB_ENV
           echo "LIB=D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Widgets.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Gui.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\Qt5Core.lib;D:\a\QRMV2Widget\Qt\5.15.2\msvc2019_64\lib\qtmain.lib;" >> $env:GITHUB_ENV
 
