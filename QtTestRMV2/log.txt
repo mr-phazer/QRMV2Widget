@@ -566,3 +566,466 @@ ACTION: Pre Group Header:
 ACTION: LOD: 3. Group: 1
 ACTION: 
 ACTION: Ridig_Material: weighted(65)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 3
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ERROR!: This is not a valid RigidModelv2 file!
+ACTION: readFileHeaderAndLodBlocks() issue!
+ACTION: File Contains Unknown RigidMaterial Headers
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 1 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 1 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 1
+ACTION: File Skeleton: 
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 4 LODs
+ACTION: File Signature: RMV2
+ACTION: File LODs: 4
+ACTION: File Skeleton: humanoid01
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 0group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 1group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 2group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 3group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 3. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 3group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 3. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 4 LODs
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 0group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 1group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 3group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 3. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: Writing RigidModelV2...
+ACTION: Calculating block size fields...
+ACTION: Lod 0 calculated offset: 252
+ACTION: Actual offset: 252
+ACTION: Lod 1 calculated offset: 118476
+ACTION: Actual offset: 118476
+ACTION: Lod 2 calculated offset: 176364
+ACTION: Actual offset: 176364
+ACTION: Lod 3 calculated offset: 210820
+ACTION: Actual offset: 210820
+ACTION: checkEntireFile()
+ACTION: File Has 3 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 3 LODs
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: default_material(68)
+ACTION: checkEntireFile()
+ACTION: File Has 4 LODs
+ACTION: checkEntireFile(): Success.
+ACTION: reading RMV2 file header
+ACTION: File Has 4 LODs
+ACTION: LOD 0group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 0group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 0. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 1group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 1group 1
+ACTION: Pre Group Header: 
+ACTION: LOD: 1. Group: 1
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 2group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 2. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)
+ACTION: LOD 3group 0
+ACTION: Pre Group Header: 
+ACTION: LOD: 3. Group: 0
+ACTION: 
+ACTION: Ridig_Material: weighted(65)

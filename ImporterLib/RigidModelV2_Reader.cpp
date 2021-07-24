@@ -388,7 +388,7 @@ bool RigidModelV2::File_Importer_Common::readMeshHeader(size_t _lod, size_t _gro
 	}
 	default:
 		return RigidModelV2::File_Importer_Common::readMeshHeader_Default_Weighted_v6_v7_v8(_lod, _group);
-	}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	}
 }
 
 bool RigidModelV2::File_Importer_Common::readMeshHeader(ERigidMaterial _eRigidMaterial, size_t _lod, size_t _group)

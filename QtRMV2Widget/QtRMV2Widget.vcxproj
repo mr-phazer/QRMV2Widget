@@ -73,11 +73,11 @@
   </ItemDefinitionGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtBuildConfig>debug</QtBuildConfig>
-    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtInstall>2019_64_F</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtInstall>2019_64_F</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="QAlphaEditLine.cpp" />
     <ClCompile Include="QGroupProperties.cpp" />
+    <ClCompile Include="QtSearchBox.cpp" />
     <QtRcc Include="QtRMV2Widget.qrc" />
     <QtUic Include="QAlphaEditLine.ui">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -150,6 +151,10 @@
     <ClCompile Include="QRMV2WidgetModule.cpp" />
     <ClCompile Include="QTextureEditLine.cpp" />
     <ClCompile Include="QtRMV2Widget.cpp" />
+    <QtUic Include="QtSearchBox.ui">
+      <QtUicDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </QtUicDir>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QAlphaEditLine.h" />
@@ -160,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="constants.h" />
     <ClInclude Include="QRMV2WidgetModule.h" />
+    <QtMoc Include="QtSearchBox.h" />
     <ClInclude Include="_render_resources.h" />
     <ClInclude Include="resource.h" />
     <QtMoc Include="QTextureEditLine.h" />

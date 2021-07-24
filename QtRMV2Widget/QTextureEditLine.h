@@ -8,6 +8,8 @@
 #include "..\ImporterLib\IRigidModelmporter.h"
 #include "..\ImporterLib\RigidModelV2_Enums.h"
 
+#include "QtSearchBox.h"
+
 class QTextureEditLine : public QWidget, public Ui::QTextureEditLine
 {
 	Q_OBJECT
@@ -25,7 +27,7 @@ public:
 	void setTexture(std::pair<std::string*, ETextureType*>);
 
 protected:
-	void makeConnection();
+	void makeConnections();
 	//protected:
 public:
 	std::string* m_pstrTexturePath = nullptr;

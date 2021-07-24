@@ -53,6 +53,9 @@
     <ClCompile Include="QRMV2WidgetModule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QtSearchBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="QAlphaEditLine.ui">
@@ -70,6 +73,9 @@
     <QtUic Include="QMaterialEditView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="QtSearchBox.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QAlphaEditLine.h">
@@ -85,6 +91,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QTextureEditLine.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QtSearchBox.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

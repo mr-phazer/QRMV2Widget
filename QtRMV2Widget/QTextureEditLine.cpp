@@ -10,7 +10,7 @@ QTextureEditLine::QTextureEditLine(QWidget* parent, std::string* _pstrTexturePat
 {
 	setupUi(this);
 
-	toolButton->setVisible(false);
+	toolButton->setVisible(true);
 
 	for (uint32_t i = 0; i < 31; i++)
 	{
@@ -26,29 +26,15 @@ QTextureEditLine::QTextureEditLine(QWidget* parent, std::string* _pstrTexturePat
 	QVariant qv = (uint32_t)*_pETextureType;
 	int index = combonTextureType->findData(qv);
 	combonTextureType->setCurrentIndex(index);
+		
 
-	QMenu* pToolButtonMenu = new QMenu();
-
-	auto pDDSAction = new QAction("Browse for DDS", this);
-	auto pDDSAction2 = new QAction("Browse for DDS 2", this);
-
-	pToolButtonMenu->addAction(pDDSAction);
-	pToolButtonMenu->addAction(pDDSAction2);
-	pToolButtonMenu->setDefaultAction(pDDSAction);
-
-	this->toolButton->setMenu(pToolButtonMenu);
-
-	makeConnection();
+	makeConnections();
 
 	toolButton->setIcon(QIcon(":/Icons/dot_menu.png"));
 
 	connect(toolButton, &QToolButton::clicked, toolButton, &QToolButton::showMenu);
-	//combonTextureType->addItem("Normal", ETextureType::eNormal);
-	//combonTextureType->addItem("Diffuse", ETextureType::eDiffuse);
-	//combonTextureType->addItem("Specular", ETextureType::eSpecular);
-	//combonTextureType->addItem("Gloss Map", ETextureType::eGlossMap);
-	//combonTextureType->addItem("Mask", ETextureType::eMask);
-	//combonTextureType->addItem("Material Map", ETextureType::eMaterialMap);
+	
+
 }
 
 QTextureEditLine::~QTextureEditLine()
@@ -67,10 +53,17 @@ void QTextureEditLine::setTexture(std::pair<std::string*, ETextureType*> _pair)
 	*m_pETextureType = *_pair.second;
 }
 
-void QTextureEditLine::makeConnection()
+void QTextureEditLine::makeConnections()
 {
 	connect(comboBox_TexturePath->lineEdit(), &QLineEdit::editingFinished, this, &QTextureEditLine::onTextEditingFinshed);
 	connect(comboBox_TexturePath->lineEdit(), &QLineEdit::textChanged, this, &QTextureEditLine::onTextEditingFinshed);
+	connect(toolButton, &QToolButton::clicked, this, [this](bool)
+		{
+			this->gridLayout->addWidget(new QtSearchBox(this), 1, 2);
+		}
+		
+		
+		);
 }
 
 //void QTextureEditLine::bindToData(std::string* _strTexturePath, ETextureType* _pETextureType)
