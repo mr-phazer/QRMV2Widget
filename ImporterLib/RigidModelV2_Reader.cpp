@@ -80,6 +80,13 @@ bool RigidModelV2::File_Importer_Common::checkEntireFile()
 		return false;
 	}
 
+	if (m_spoData->oFileHeader.dwLodCount == 0)
+	{
+		m_spoData->m_strLastErrorString = "RMV2 File hase lod count 0 (zero), file is invalid: ";
+
+		return false;
+	}
+
 	for (size_t lod = 0; lod < m_spoData->oLodHeaderBlock.vecElements.size(); lod++)
 	{
 		// seek to the start of LOD x data

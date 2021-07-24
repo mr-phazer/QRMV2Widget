@@ -34,8 +34,13 @@ bool setRMV2Data(QWidget* dest, const QByteArray* sourceBuffer)
 
 	if (spoImporter->getFile())
 	{
-		po->setData_New(spoImporter->getFile());
-		return true;
+		bool resultSetData = po->setData_New(spoImporter->getFile());
+		return resultSetData;
+	}
+	else
+	{
+		// import->getile retured false
+		return false;
 	}
 
 	return false;

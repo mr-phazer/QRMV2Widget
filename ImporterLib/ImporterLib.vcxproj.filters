@@ -93,6 +93,9 @@
     <ClInclude Include="string_constants.h">
       <Filter>RigidModelV2</Filter>
     </ClInclude>
+    <ClInclude Include="..\QtTestRMV2\QCONSOLE.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImporterLib.cpp">

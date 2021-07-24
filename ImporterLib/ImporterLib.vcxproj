@@ -167,6 +167,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\QtTestRMV2\QCONSOLE.H" />
     <ClInclude Include="AnimFIle.h" />
     <ClInclude Include="anim_structs.h" />
     <ClInclude Include="bone_table.h" />

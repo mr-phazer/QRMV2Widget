@@ -10,7 +10,7 @@ namespace RigidModelV2
 		{
 			if (_file_pos != _lod_offset)
 			{
-				_log_action_error("Fatal Error: LOD Offset / File position mismatch. Skipping.");
+				// _log_action_error("Fatal Error: LOD Offset / File position mismatch. Skipping.");
 
 				return false;
 			}

@@ -23,6 +23,7 @@
 #include "..\ImporterLib\RigidModelV2_Writer.h"
 
 #include "QGroupProperties.h"
+#include <qevent.h>
 
 using namespace std;
 

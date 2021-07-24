@@ -193,7 +193,7 @@
 //	oOutFile.close();
 //}
 //
-//void _impl__log_action_success(const std::string& _strMsg)
+//void _impl_// _log_action_success(const std::string& _strMsg)
 //{
 //	/*std::ofstream logFile("log.txt", std::ios::app);;
 //	logFile << "SUCCESS: ";
@@ -216,7 +216,7 @@
 //	oOutFile.close();
 //}
 //
-//bool _impl__log_action_error(const std::string& _strMsg)
+//bool _impl_// _log_action_error(const std::string& _strMsg)
 //{
 //	/*std::ofstream logFile("log.txt", std::ios::app);;
 //	logFile << "Error: ";

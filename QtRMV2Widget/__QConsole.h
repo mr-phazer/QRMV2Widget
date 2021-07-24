@@ -30,8 +30,8 @@ extern void _log_action(const std::string& _strMsg, bool _bSuccess);
 
 extern void __log_action(const std::string& _strMsg);
 
-extern void _log_action_success(const std::string& _strMsg);
-extern bool __log_action_error(const std::string& _strMsg);
+extern void // _log_action_success(const std::string& _strMsg);
+extern bool _// _log_action_error(const std::string& _strMsg);
 extern bool _log_action_warning(const std::string& _strMsg);
 extern void _log_write(const std::string& _strMsg);
 

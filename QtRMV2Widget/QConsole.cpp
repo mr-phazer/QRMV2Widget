@@ -7,7 +7,7 @@
 //
 //QConsole::QConsole() :
 //    QPlainTextEdit::QPlainTextEdit()
-//{	
+//{
 //    setWindowTitle("Log Window");
 //    setStyleSheet("QPlainTextEdit {background-color: black; color: white;}");
 //    /*setStyleSheet("QPlainTextEdit {"
@@ -16,15 +16,15 @@
 //        "color: white;"
 //        ";}"
 //    );*/
-//    
+//
 //        QSize size;
-//    
+//
 //    QRect rec = QApplication::desktop()->screenGeometry();
 //    int height = rec.height() / 2;
 //    int width = rec.width() / 2;
 //
 //    setMinimumSize(width, height);
-//        
+//
 //    appendHtml("****** RMEditor 0.9.1a Log Log ******");
 //    //toHtml();
 //
@@ -35,30 +35,30 @@
 //
 //void QConsole::write(const std::string& _str, const std::string& _color, const std::string& _bg, size_t size)
 //{
-////    std::string strTemp = 
+////    std::string strTemp =
 ////     /*   "<font size = \""+
-////        std::to_string(size) +  "\"" + 
+////        std::to_string(size) +  "\"" +
 ////     */   "<p style = \"color: " +
 ////        _color +
 ////        "; background-color: " +
-////        _bg + 
+////        _bg +
 ////        "\" >"+
-////        
+////
 ////        _str +
-////        
+////
 ////        "</p>";
 //
 //    //std::string strTemp =
-//    //       
+//    //
 //    //           "<p style = \"color: " +
 //    //           _color +
 //    //           "; background-color: " +
-//    //           _bg + 
-//    //    
+//    //           _bg +
+//    //
 //    //            "\" >" +
-//    //           
+//    //
 //    //           _str +
-//    //           
+//    //
 //    //           "</p>";    //std::string strTemp =
 //
 //
@@ -92,7 +92,7 @@
 //    this->textCursor().insertHtml(strTemp.c_str());
 //    //this->textCursor().insertHtml("<p style=\"color:white;white-space:pre\">" + QString("testing") + "</p>");
 //    moveCursor(QTextCursor::End);
-//    
+//
 //
 //}
 //
@@ -120,9 +120,9 @@
 //    //    "\" >" +
 //    //    _str +
 //    //    "</p>";
-//    
+//
 //    appendHtml(strTemp.c_str());
-//    
+//
 //
 //}
 //
@@ -160,17 +160,17 @@
 //    g_poConsole->writeLn();
 //    g_poConsole->write("ACTION:", "white", "blue", 4);
 //
-//    g_poConsole->write("&#160;", "white", "black", 4);    
-//    g_poConsole->write("&#160;", "white", "black", 4);    
+//    g_poConsole->write("&#160;", "white", "black", 4);
+//    g_poConsole->write("&#160;", "white", "black", 4);
 //
-//    g_poConsole->write( (_strMsg).c_str(), "white", "black", 4);       
+//    g_poConsole->write( (_strMsg).c_str(), "white", "black", 4);
 //
-//   
+//
 //
 //
 //}
 //
-//void _log_action_success(const std::string& _strMsg)
+//void // _log_action_success(const std::string& _strMsg)
 //{
 //    g_poConsole->writeLn();
 //    g_poConsole->write("ACTION:", "white", "blue", 4);
@@ -184,7 +184,7 @@
 //    g_poConsole->write("Success.", "white", "green", 4);
 //}
 //
-//bool _log_action_error(const std::string& _strMsg)
+//bool // _log_action_error(const std::string& _strMsg)
 //{
 //    g_poConsole->writeLn();
 //    g_poConsole->write("ACTION:", "white", "blue", 4);
@@ -215,8 +215,8 @@
 //
 //void _log_write(const std::string& _strMsg)
 //{
-// 
-//    
+//
+//
 //    g_poConsole->write(_strMsg, "black", "gray", 4);
 //    g_poConsole->writeLn();
 //
