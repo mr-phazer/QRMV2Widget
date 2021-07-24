@@ -60,6 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: D:/output/qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }
-          asset_name: qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }
+          asset_path: D:/output/qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }}
+          asset_name: qtrmv2_widget-${{ github.ref }}-${{ matrix.TARGET }}.${{ matrix.EXTENSION }}
           asset_content_type: ${{ matrix.MIME }}
