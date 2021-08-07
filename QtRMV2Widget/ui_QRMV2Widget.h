@@ -218,7 +218,7 @@ public:
 #endif // QT_CONFIG(tooltip)
         pushButton_CopyAlphaAlphaGroup->setText(QCoreApplication::translate("QRMV2Widget", "Fill Alpha", nullptr));
         checkBox->setText(QCoreApplication::translate("QRMV2Widget", "Show Advanced", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("QRMV2Widget", "Material - Textuire Set:", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("QRMV2Widget", "Materials:", nullptr));
     } // retranslateUi
 
 };

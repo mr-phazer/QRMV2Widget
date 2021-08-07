@@ -53,7 +53,7 @@ std::shared_ptr<RigidModelV2::Common::CommonFile> RigidModelV2::File_Exporter_Co
 	return m_spoData;
 }
 
-bool RigidModelV2::File_Exporter_Common::setFile(std::shared_ptr<RigidModelV2::Common::CommonFile> _spoFile)
+bool RigidModelV2::File_Exporter_Common::setFileData(std::shared_ptr<RigidModelV2::Common::CommonFile> _spoFile)
 {
 	m_spoData = _spoFile;
 
@@ -330,11 +330,11 @@ bool RigidModelV2::File_Exporter_Common::writeGroupHeaderDefaultWeighted_V6_V7_V
 
 	m_spoStream->writeMem(&SubMeshPreHeader.oValues, sizeof(SubMeshPreHeader.oValues));
 
-	// TODO: correct version
-	//m_spoStream->writeMem(&SubMeshPreHeader.vecUnknownDataBuffer[0], 140 - sizeof(SubMeshPreHeader.oValues));
+	// correct version
+	m_spoStream->writeMem(&SubMeshPreHeader.vecUnknownDataBuffer[0], 140 - sizeof(SubMeshPreHeader.oValues));
 
 	// TODO: debuggin version, on purpose crashy
-	m_spoStream->writeMem(&SubMeshPreHeader.vecUnknownDataBuffer[0], 140);
+	//m_spoStream->writeMem(&SubMeshPreHeader.vecUnknownDataBuffer[0], 140);
 
 	auto read = m_spoStream->tellp() - first;
 

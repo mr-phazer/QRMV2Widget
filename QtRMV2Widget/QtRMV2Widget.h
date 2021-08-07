@@ -5,8 +5,9 @@
 #include <QtCore\qdir.h>
 
 #include <QtWidgets/qwidget.h>
+
+#include <QtWidgets/qwidget.h>
 #include <QtWidgets/qlineedit.h>
-#include <QtWidgets/qtextedit.h>
 #include <QtWidgets/qFrame.h>
 #include <QtWidgets/qstackedwidget.h>
 #include <QtWidgets/qmessagebox.h>
@@ -21,6 +22,7 @@
 #include "..\ImporterLib\RigidModelV2_Writer.h"
 
 #include "QGroupProperties.h"
+#include <qevent.h>
 
 using namespace std;
 
@@ -71,7 +73,7 @@ public:
 
 		if (spoImporter->getFile())
 		{
-			setFile_New(spoImporter->getFile());
+			setData_New(spoImporter->getFile());
 			return;
 		}
 
@@ -82,8 +84,8 @@ public:
 
 #endif // DEBUG
 
-	bool setFile(ImporterLib::RigidModel::IRigidModelFile*);
-	bool setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile);
+	bool setRigidModel(ImporterLib::RigidModel::IRigidModelFile*);
+	bool setData_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile);
 
 private slots:
 	void onItemClicked(QTreeWidgetItem* item, int column);

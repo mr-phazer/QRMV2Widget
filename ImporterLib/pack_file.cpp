@@ -133,7 +133,7 @@ bool pack_file::findValidPackFiles(const wstring& _strDir, const vector<uint32_t
 		string msg = "Function: findValidPakFiles() : File Not Found.Content:\r\n '";
 		msg += QString::fromStdWString(_strDir.c_str()).toStdString().c_str(); +"' \r\nPossibly invalid \\ data \\ folder set.";
 
-		// _log_action_error(msg);
+		// // _log_action_error(msg);
 
 		return false;
 	}

@@ -26,7 +26,7 @@ namespace RigidModelV2
 		static std::shared_ptr<RigidModelV2::File_Exporter_Common> create_from_disk(const std::wstring& _strPath);
 
 		std::shared_ptr <Common::CommonFile> getFile();
-		bool setFile(std::shared_ptr<RigidModelV2::Common::CommonFile> _spoFile);
+		bool setFileData(std::shared_ptr<RigidModelV2::Common::CommonFile> _spoFile);
 		//bool isValid() {
 		//	return m_bIsValid;
 		//};

@@ -525,7 +525,7 @@ size_t RigidModelV2::Common::MeshBlock::updateGroupFields_v6_v7_v8()
 	oPreHeader.dwVertexCount = oMeshBlock.vecVertices.size();
 	oPreHeader.dwIndexCount = oMeshBlock.vecIndices.size();
 
-	// set attachment point and texture counts
+	// set attachment point and texture counts;
 	oSubMeshHeader.dwAttachmentPointCount = oAttachBlock.vecAttachmentPoints.size();
 	oSubMeshHeader.dwTextureCount = oMaterialBlock.vecTextures.size();
 

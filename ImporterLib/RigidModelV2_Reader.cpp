@@ -76,6 +76,14 @@ bool RigidModelV2::File_Importer_Common::checkEntireFile()
 
 	if (!readFileHeaderAndLodBlocks())
 	{
+		_log_action("readFileHeaderAndLodBlocks() issue!");
+		return false;
+	}
+
+	if (m_spoData->oFileHeader.dwLodCount == 0)
+	{
+		m_spoData->m_strLastErrorString = "RMV2 File hase lod count 0 (zero), file is invalid: ";
+
 		return false;
 	}
 
@@ -87,10 +95,10 @@ bool RigidModelV2::File_Importer_Common::checkEntireFile()
 
 		if (real_offset != m_spoData->oLodHeaderBlock.vecElements[lod].dwStartOffset)
 		{
-			return RigidModelV2::Common::CommonFile::ErrorString(m_spoData,
-				"FATAL ERROR: LOD: " + to_string(lod) + " failed integrity test. + start offset mismatch"
+			_log_action("FATAL ERROR: LOD: " + to_string(lod) + " failed integrity test. Start offset incorrect.");
 
-			);
+			return RigidModelV2::Common::CommonFile::ErrorString(m_spoData,
+				"FATAL ERROR: LOD: " + to_string(lod) + " failed integrity test. Start offset incorrect.");
 		}
 
 		// skip drectly to a certain LOD, if needed
@@ -106,6 +114,9 @@ bool RigidModelV2::File_Importer_Common::checkEntireFile()
 			// (where the header lenght+contents is known and there is a working reader/writer for it)
 			if (!RigidModelV2::Common::isKnownMaterial(oMeshPreHeader.RigidMaterialId))
 			{
+				_log_action("RMV2 File Contains Yet - to - be - decoded RigidgMaterial Header : "
+					+ getStringFrom_RigidMaterialId(oMeshPreHeader.RigidMaterialId));
+
 				m_spoData->m_strLastErrorString = "RMV2 File Contains Yet-to-be-decoded RigidgMaterial Header: "
 					+ getStringFrom_RigidMaterialId(oMeshPreHeader.RigidMaterialId);
 
@@ -164,6 +175,8 @@ bool RigidModelV2::File_Importer_Common::readFileHeaderAndLodBlocks()
 			return false;
 		};
 	}
+
+	return true;
 }
 
 bool RigidModelV2::File_Importer_Common::readFileHeader_V5()
@@ -297,51 +310,6 @@ bool RigidModelV2::File_Importer_Common::readMeshBlock(size_t _lod, size_t _grou
 		extra.vecExtraMaterialData.resize(extra_size);
 		m_spoStream->readMem(&extra.vecExtraMaterialData[0], extra_size);
 	}
-
-	//	return true;
-
-	//auto& g = m_spoData->vecLODs[_lod].vecMeshBlocks[_group];
-	//_log_action("Attachmen Points: " + to_string(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwAttachmentPointCount));
-	//_log_action("Textures: " + to_string(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwTextureCount));
-	//size_t read = m_spoStream->tellp() - first_index;
-	////size_t header_size = 0;
-	////if (this->m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion == 5)
-	////{
-	////	header_size = m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.uiTextureAndAttchmentBlockSize -
-	////		Common::TextureElement::_size_v5 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwTextureCount -
-	////		Common::AttachmentPointTableEntry::_size_v5 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwAttachmentPointCount
-	////		- 8;
-	////}
-	////else
-	////{
-	////	header_size = m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.uiTextureAndAttchmentBlockSize -
-	////		Common::TextureElement::_size_v6_v7_v8 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwTextureCount -
-	////		Common::AttachmentPointTableEntry::_size_v6_v7_v8 * m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oSubMeshHeader.dwAttachmentPointCount
-	////		- 8;
-	////}
-
-	//// read the extra data some material type put here. (calculate its length)
-
-	//size_t header_size =
-	//	(m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion == 5)
-	//	?
-	//	RigidModelV2::_mesh_header_default_weighted_v5_length
-	//	:
-	//	RigidModelV2::_mesh_header_default_weighted_v6_v7_v8_length;
-
-	//size_t extra_material_data_size = (m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.uiTextureAndAttchmentBlockSize - header_size) - read;
-
-	//m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oExtraMaterialBlock.vecExtraMaterialData.clear();
-
-	//if (extra_material_data_size)
-	//{
-	//	//_log_action(to_string(extra) + " extra bytes for material " + getStringFrom_RigidMaterialId(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.RigidMaterialId) +
-	//	//	string("(") + to_string(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oPreHeader.RigidMaterialId) + ")");
-
-	//	m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oExtraMaterialBlock.vecExtraMaterialData.resize(extra_material_data_size);
-
-	//	m_spoStream->readMem(m_spoData->vecLODs[_lod].vecMeshBlocks[_group].oExtraMaterialBlock.vecExtraMaterialData.data(), extra_material_data_size);
-	//}
 
 	switch (mesh.oPreHeader.RigidMaterialId)
 	{

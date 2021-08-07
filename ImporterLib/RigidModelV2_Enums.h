@@ -101,6 +101,8 @@ inline static bool isRigidMaterialValid(ERigidMaterial _eMat)
 {
 	if (!(_eMat >= bow_wave && _eMat <= unknown1))
 		return false;
+
+	return true;
 }
 
 struct MaterialIdToHeaderSize

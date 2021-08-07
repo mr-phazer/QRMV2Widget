@@ -114,6 +114,9 @@ namespace RigidModelV2
 			case ERigidMaterial::weighted_dirtmap:
 				return true;
 
+			case ERigidMaterial::decal:
+				return true;
+
 			case ERigidMaterial::weighted_decal:
 				return true;
 
@@ -555,7 +558,7 @@ namespace RigidModelV2
 
 			//private:
 			bool m_bIsValid = false;
-			std::string m_strLastErrorString = "no operation perfomed yet";
+			std::string m_strLastErrorString = "";
 		};
 	};
 };

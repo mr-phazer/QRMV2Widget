@@ -28,7 +28,7 @@ int BatchTest()
 
 	string strFíleName = "RMV2_Log_" + strTime + ".txt";
 
-	g_qstrLogFileName = strFíleName.c_str();
+	//g_qstrLogFileName = strFíleName.c_str();
 
 	//QCoreApplication a();
 
@@ -111,7 +111,11 @@ int main(int argc, char* argv[])
 #endif
 
 	auto  g_poRmv2 = createRMV2Widget(nullptr);
+	g_poRmv2->setWindowTitle("RPFM/Qt RME RigidModel Component Tester. OPEN: Ctrl+O / Drag+Drop,  SAVE: CTRL+S");
+
 	g_poRmv2->show();
+
+#ifdef DEBUG
 
 	QShortcut* qpShortcut_OpenFile = new QShortcut(QKeySequence(QRMV2Widget::tr("Ctrl+O", "File|Open")),
 		g_poRmv2);
@@ -166,6 +170,8 @@ int main(int argc, char* argv[])
 			fileOut.close();
 		}
 	);
+
+#endif // DEBUG
 
 	return a.exec();
 
