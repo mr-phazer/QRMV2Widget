@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
 
 	g_poRmv2->show();
 
-#ifdef DEBUG
+#ifdef _DEBUG
 
 	QShortcut* qpShortcut_OpenFile = new QShortcut(QKeySequence(QRMV2Widget::tr("Ctrl+O", "File|Open")),
 		g_poRmv2);

@@ -34,6 +34,8 @@ public:
 	uint32_t* pdwTexturetype = nullptr;
 	ETextureType* m_pETextureType = nullptr;
 
+	QtSearchBox* m_poSearchBox = nullptr;
+
 private slots:
 	void onTextEditingFinshed();
 };

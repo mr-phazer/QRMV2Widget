@@ -441,7 +441,7 @@ bool RigidModelV2::File_Importer_Common::readLodHeaderBlock_V7_V8()
 		//if (!oValidDator.validateLodHeader(&itLod))
 		//{
 		//	return false;
-		//}
+			//}
 	}
 
 	return true;
@@ -885,12 +885,12 @@ bool RigidModelV2::File_Importer_Common::readVertexBlock_STANDARD_Raw(size_t _lo
 		oGroupBlock.oPreHeader.uiTextureAndAttchmentBlockSize;
 
 	if (vertex_data_size == 0)
-		return true;
+		return false;
 
 	/*oGroupBlock.oPreHeader.dwVertexData_TextAndAttach_BlockSize -
 	oGroupBlock.oPreHeader.uiTextureAndAttchmentBlockSize;*/
 
-	size_t vertex_size = oGroupBlock.calculateVertexSize();
+	//size_t vertex_size = oGroupBlock.calculateVertexSize();
 	// this is a raw memory buffer holding bytes
 	oGroupBlock.oMeshBlock.vecVertexDataRawBuffer.resize(vertex_data_size);
 
@@ -909,44 +909,44 @@ bool RigidModelV2::File_Importer_Common::readVertexBlock_STANDARD_Raw(size_t _lo
 
 	return true;
 
-	// TODO: DO NOT leave as "return" or decoding of mesh will be skipped,
+	//// TODO: DO NOT leave as "return" or decoding of mesh will be skipped,
+	////return true;
+
+	//switch (oGroupBlock.oSubMeshHeader.VertexFormatId)
+	//{
+	//case EVertexFormat::eDefaultFormat:
+	//	if (m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion < 8)
+	//	{
+	//		oGroupBlock.oMeshBlock.unpackAs_Default(vertex_size);
+	//	}
+	//	else
+	//	{
+	//	}
+	//	break;
+
+	//case EVertexFormat::eWeightedFormat:
+	//	if (m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion < 8)
+	//	{
+	//		oGroupBlock.oMeshBlock.unpackAs_Weighted2_V5_V6_V7(vertex_size);
+	//	}
+	//	else
+	//	{
+	//	}
+	//	break;
+
+	//case EVertexFormat::eCinematicFormat:
+
+	//	if (m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion < 8)
+	//	{
+	//		oGroupBlock.oMeshBlock.unpackAs_Weighted4_V5_V6_V7(vertex_size);
+	//	}
+	//	else
+	//	{
+	//	}
+	//	break;
+	//}
+
 	//return true;
-
-	switch (oGroupBlock.oSubMeshHeader.VertexFormatId)
-	{
-	case EVertexFormat::eDefaultFormat:
-		if (m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion < 8)
-		{
-			oGroupBlock.oMeshBlock.unpackAs_Default(vertex_size);
-		}
-		else
-		{
-		}
-		break;
-
-	case EVertexFormat::eWeightedFormat:
-		if (m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion < 8)
-		{
-			oGroupBlock.oMeshBlock.unpackAs_Weighted2_V5_V6_V7(vertex_size);
-		}
-		else
-		{
-		}
-		break;
-
-	case EVertexFormat::eCinematicFormat:
-
-		if (m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion < 8)
-		{
-			oGroupBlock.oMeshBlock.unpackAs_Weighted4_V5_V6_V7(vertex_size);
-		}
-		else
-		{
-		}
-		break;
-	}
-
-	return true;
 }
 
 bool RigidModelV2::File_Importer_Common::readIndices(size_t _lod, size_t _group)

@@ -28,17 +28,17 @@ public:
     QGroupBox *groupBox;
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout;
-    QComboBox *comboBoxKnownValues;
-    QLabel *label_6;
-    QLabel *label_2;
-    QLabel *label_4;
-    QLineEdit *lineEdit_ShaderName;
-    QLineEdit *lineEdit_MeshName;
-    QLineEdit *lineEditFlagValue;
     QLineEdit *lineEdit_TextureFolder;
     QLabel *label_5;
-    QLabel *label_3;
     QLabel *label;
+    QLineEdit *lineEdit_MeshName;
+    QLabel *label_3;
+    QLabel *label_2;
+    QLabel *label_6;
+    QLabel *label_4;
+    QLineEdit *lineEditFlagValue;
+    QComboBox *comboBoxKnownValues;
+    QLineEdit *lineEdit_ShaderName;
 
     void setupUi(QWidget *QAlphaEditLine)
     {
@@ -69,12 +69,57 @@ public:
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        comboBoxKnownValues = new QComboBox(groupBox);
-        comboBoxKnownValues->setObjectName(QString::fromUtf8("comboBoxKnownValues"));
-        comboBoxKnownValues->setMinimumSize(QSize(150, 0));
-        comboBoxKnownValues->setMaximumSize(QSize(200, 16777215));
+        lineEdit_TextureFolder = new QLineEdit(groupBox);
+        lineEdit_TextureFolder->setObjectName(QString::fromUtf8("lineEdit_TextureFolder"));
+        lineEdit_TextureFolder->setReadOnly(true);
 
-        gridLayout->addWidget(comboBoxKnownValues, 1, 6, 1, 1);
+        gridLayout->addWidget(lineEdit_TextureFolder, 0, 1, 1, 4);
+
+        label_5 = new QLabel(groupBox);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
+        label_5->setSizePolicy(sizePolicy2);
+        label_5->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
+
+        gridLayout->addWidget(label_5, 0, 0, 1, 1);
+
+        label = new QLabel(groupBox);
+        label->setObjectName(QString::fromUtf8("label"));
+        sizePolicy2.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy2);
+
+        gridLayout->addWidget(label, 1, 5, 1, 1);
+
+        lineEdit_MeshName = new QLineEdit(groupBox);
+        lineEdit_MeshName->setObjectName(QString::fromUtf8("lineEdit_MeshName"));
+        sizePolicy1.setHeightForWidth(lineEdit_MeshName->sizePolicy().hasHeightForWidth());
+        lineEdit_MeshName->setSizePolicy(sizePolicy1);
+        lineEdit_MeshName->setMinimumSize(QSize(0, 0));
+        lineEdit_MeshName->setReadOnly(true);
+
+        gridLayout->addWidget(lineEdit_MeshName, 2, 1, 1, 3);
+
+        label_3 = new QLabel(groupBox);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        sizePolicy2.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
+        label_3->setSizePolicy(sizePolicy2);
+
+        gridLayout->addWidget(label_3, 2, 5, 1, 1);
+
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy3);
+        label_2->setLayoutDirection(Qt::LeftToRight);
+        label_2->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_2, 0, 6, 1, 1);
 
         label_6 = new QLabel(groupBox);
         label_6->setObjectName(QString::fromUtf8("label_6"));
@@ -82,39 +127,11 @@ public:
 
         gridLayout->addWidget(label_6, 2, 0, 1, 1);
 
-        label_2 = new QLabel(groupBox);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy2);
-        label_2->setLayoutDirection(Qt::LeftToRight);
-        label_2->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(label_2, 0, 6, 1, 1);
-
         label_4 = new QLabel(groupBox);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
 
         gridLayout->addWidget(label_4, 1, 0, 1, 1);
-
-        lineEdit_ShaderName = new QLineEdit(groupBox);
-        lineEdit_ShaderName->setObjectName(QString::fromUtf8("lineEdit_ShaderName"));
-        sizePolicy2.setHeightForWidth(lineEdit_ShaderName->sizePolicy().hasHeightForWidth());
-        lineEdit_ShaderName->setSizePolicy(sizePolicy2);
-        lineEdit_ShaderName->setReadOnly(true);
-
-        gridLayout->addWidget(lineEdit_ShaderName, 1, 1, 1, 1);
-
-        lineEdit_MeshName = new QLineEdit(groupBox);
-        lineEdit_MeshName->setObjectName(QString::fromUtf8("lineEdit_MeshName"));
-        sizePolicy2.setHeightForWidth(lineEdit_MeshName->sizePolicy().hasHeightForWidth());
-        lineEdit_MeshName->setSizePolicy(sizePolicy2);
-        lineEdit_MeshName->setReadOnly(true);
-
-        gridLayout->addWidget(lineEdit_MeshName, 2, 1, 1, 1);
 
         lineEditFlagValue = new QLineEdit(groupBox);
         lineEditFlagValue->setObjectName(QString::fromUtf8("lineEditFlagValue"));
@@ -124,36 +141,21 @@ public:
 
         gridLayout->addWidget(lineEditFlagValue, 2, 6, 1, 1);
 
-        lineEdit_TextureFolder = new QLineEdit(groupBox);
-        lineEdit_TextureFolder->setObjectName(QString::fromUtf8("lineEdit_TextureFolder"));
-        lineEdit_TextureFolder->setReadOnly(true);
+        comboBoxKnownValues = new QComboBox(groupBox);
+        comboBoxKnownValues->setObjectName(QString::fromUtf8("comboBoxKnownValues"));
+        comboBoxKnownValues->setMinimumSize(QSize(150, 0));
+        comboBoxKnownValues->setMaximumSize(QSize(200, 16777215));
 
-        gridLayout->addWidget(lineEdit_TextureFolder, 0, 1, 1, 2);
+        gridLayout->addWidget(comboBoxKnownValues, 1, 6, 1, 1);
 
-        label_5 = new QLabel(groupBox);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
-        label_5->setSizePolicy(sizePolicy3);
-        label_5->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
+        lineEdit_ShaderName = new QLineEdit(groupBox);
+        lineEdit_ShaderName->setObjectName(QString::fromUtf8("lineEdit_ShaderName"));
+        sizePolicy1.setHeightForWidth(lineEdit_ShaderName->sizePolicy().hasHeightForWidth());
+        lineEdit_ShaderName->setSizePolicy(sizePolicy1);
+        lineEdit_ShaderName->setMinimumSize(QSize(0, 0));
+        lineEdit_ShaderName->setReadOnly(true);
 
-        gridLayout->addWidget(label_5, 0, 0, 1, 1);
-
-        label_3 = new QLabel(groupBox);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        sizePolicy3.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
-        label_3->setSizePolicy(sizePolicy3);
-
-        gridLayout->addWidget(label_3, 2, 4, 1, 1);
-
-        label = new QLabel(groupBox);
-        label->setObjectName(QString::fromUtf8("label"));
-        sizePolicy3.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy3);
-
-        gridLayout->addWidget(label, 1, 4, 1, 1);
+        gridLayout->addWidget(lineEdit_ShaderName, 1, 1, 1, 3);
 
 
         horizontalLayout->addLayout(gridLayout);
@@ -171,16 +173,16 @@ public:
     {
         QAlphaEditLine->setWindowTitle(QCoreApplication::translate("QAlphaEditLine", "QTextureEditLine", nullptr));
         groupBox->setTitle(QCoreApplication::translate("QAlphaEditLine", "Mesh Info", nullptr));
-        label_6->setText(QCoreApplication::translate("QAlphaEditLine", "Part(MesH) Name", nullptr));
-        label_2->setText(QCoreApplication::translate("QAlphaEditLine", "Known values:", nullptr));
-        label_4->setText(QCoreApplication::translate("QAlphaEditLine", "Shader name:", nullptr));
-        lineEdit_ShaderName->setPlaceholderText(QCoreApplication::translate("QAlphaEditLine", "shader name", nullptr));
-        lineEdit_MeshName->setPlaceholderText(QCoreApplication::translate("QAlphaEditLine", "mesh name", nullptr));
         lineEdit_TextureFolder->setText(QString());
         lineEdit_TextureFolder->setPlaceholderText(QCoreApplication::translate("QAlphaEditLine", "internal texture folder", nullptr));
         label_5->setText(QCoreApplication::translate("QAlphaEditLine", "Texture Folder", nullptr));
-        label_3->setText(QCoreApplication::translate("QAlphaEditLine", "Flag Value:", nullptr));
         label->setText(QCoreApplication::translate("QAlphaEditLine", "Alpha Flags:", nullptr));
+        lineEdit_MeshName->setPlaceholderText(QCoreApplication::translate("QAlphaEditLine", "mesh name", nullptr));
+        label_3->setText(QCoreApplication::translate("QAlphaEditLine", "Flag Value:", nullptr));
+        label_2->setText(QCoreApplication::translate("QAlphaEditLine", "Known values:", nullptr));
+        label_6->setText(QCoreApplication::translate("QAlphaEditLine", "Part(MesH) Name", nullptr));
+        label_4->setText(QCoreApplication::translate("QAlphaEditLine", "Shader name:", nullptr));
+        lineEdit_ShaderName->setPlaceholderText(QCoreApplication::translate("QAlphaEditLine", "shader name", nullptr));
     } // retranslateUi
 
 };

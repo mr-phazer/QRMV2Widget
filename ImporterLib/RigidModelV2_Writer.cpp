@@ -440,7 +440,7 @@ bool RigidModelV2::File_Exporter_Common::writeVertexBlock_Raw(size_t _lod, size_
 
 	return true;
 
-	switch (oGroupBlock.oSubMeshHeader.VertexFormatId)
+	/*switch (oGroupBlock.oSubMeshHeader.VertexFormatId)
 	{
 	case EVertexFormat::eDefaultFormat:
 		if (m_spoData->oFileHeader.oFileInfoHeader.dwModelVersion < 8)
@@ -481,7 +481,7 @@ bool RigidModelV2::File_Exporter_Common::writeVertexBlock_Raw(size_t _lod, size_
 	);
 
 	size_t write = m_spoStream->tellp() - first;
-	return true;
+	return true;*/
 }
 
 bool RigidModelV2::File_Exporter_Common::writeIndices(size_t _lod, size_t _group)
