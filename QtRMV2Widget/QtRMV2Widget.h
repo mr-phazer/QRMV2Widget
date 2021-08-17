@@ -1,14 +1,12 @@
 #pragma once
 
 #include <memory>
-#include <qwidget>
-#include <qmimedata.h>
-#include <qdir.h>
-
-#include <QtWidgets/qwidget.h>
+#include <QtCore\qmimedata.h>
+#include <QtCore\qdir.h>
 
 #include <QtWidgets/qwidget.h>
 #include <QtWidgets/qlineedit.h>
+#include <QtWidgets/qtextedit.h>
 #include <QtWidgets/qFrame.h>
 #include <QtWidgets/qstackedwidget.h>
 #include <QtWidgets/qmessagebox.h>
@@ -23,7 +21,6 @@
 #include "..\ImporterLib\RigidModelV2_Writer.h"
 
 #include "QGroupProperties.h"
-#include <qevent.h>
 
 using namespace std;
 
@@ -34,8 +31,6 @@ class QRMV2Widget : public QWidget, public Ui::QRMV2Widget
 public:
 	QRMV2Widget(QWidget* parent = Q_NULLPTR);
 	~QRMV2Widget();
-
-	void fixRMV2LodValues();
 
 #ifdef _DEBUG
 
@@ -76,7 +71,7 @@ public:
 
 		if (spoImporter->getFile())
 		{
-			setData_New(spoImporter->getFile());
+			setFile_New(spoImporter->getFile());
 			return;
 		}
 
@@ -87,8 +82,8 @@ public:
 
 #endif // DEBUG
 
-	bool setRigidModel(ImporterLib::RigidModel::IRigidModelFile*);
-	bool setData_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile);
+	bool setFile(ImporterLib::RigidModel::IRigidModelFile*);
+	bool setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile);
 
 private slots:
 	void onItemClicked(QTreeWidgetItem* item, int column);

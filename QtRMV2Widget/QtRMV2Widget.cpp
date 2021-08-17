@@ -1,80 +1,4 @@
 #include "QtRMV2Widget.h"
-#include "qfiledialog.h"
-#include "..\ImporterLib\RigidModelV2_Reader.h"
-#include "..\ImporterLib\RigidModelV2_Writer.h"
-#include "..\SystemLib\tools.h"
-
-void QRMV2Widget::fixRMV2LodValues()
-{
-	QFileDialog* qDialog = new QFileDialog(this);
-
-	qDialog->setNameFilters({ "RMV2 (*.rigid_model_v2)" ,  "All Files (*.*.)" });
-	qDialog->setFileMode(QFileDialog::ExistingFiles);
-
-	qDialog->exec();
-	auto filesSelected = qDialog->selectedFiles();
-
-	for (auto& it : filesSelected)
-	{
-		auto importer = RigidModelV2::File_Importer_Common::create(it.toStdWString());
-		auto inFile = importer->getFile();
-
-		// --- TODO: process
-
-		if (inFile->oLodHeaderBlock.vecElements.size() == 1)
-		{
-			inFile->oLodHeaderBlock.vecElements[0].fVisibilityDistance = 10000.f;
-		}
-		if (inFile->oLodHeaderBlock.vecElements.size() == 2)
-		{
-			inFile->oLodHeaderBlock.vecElements[0].fVisibilityDistance = 20.f;
-			inFile->oLodHeaderBlock.vecElements[1].fVisibilityDistance = 10000.f;
-		}
-		if (inFile->oLodHeaderBlock.vecElements.size() == 3)
-		{
-			inFile->oLodHeaderBlock.vecElements[0].fVisibilityDistance = 20.f;
-			inFile->oLodHeaderBlock.vecElements[1].fVisibilityDistance = 80.f;
-			inFile->oLodHeaderBlock.vecElements[2].fVisibilityDistance = 10000.f;
-		}
-		if (inFile->oLodHeaderBlock.vecElements.size() == 4)
-		{
-			inFile->oLodHeaderBlock.vecElements[0].fVisibilityDistance = 20.f;
-			inFile->oLodHeaderBlock.vecElements[1].fVisibilityDistance = 80.f;
-			inFile->oLodHeaderBlock.vecElements[2].fVisibilityDistance = 100.f;
-			inFile->oLodHeaderBlock.vecElements[3].fVisibilityDistance = 10000.f;
-		}
-		else if (inFile->oLodHeaderBlock.vecElements.size() == 5)
-		{
-			inFile->oLodHeaderBlock.vecElements[0].fVisibilityDistance = 20.f;
-			inFile->oLodHeaderBlock.vecElements[1].fVisibilityDistance = 80.f;
-			inFile->oLodHeaderBlock.vecElements[2].fVisibilityDistance = 100.f;
-			inFile->oLodHeaderBlock.vecElements[3].fVisibilityDistance = 300.f;
-			inFile->oLodHeaderBlock.vecElements[4].fVisibilityDistance = 10000.f;
-		}
-		else if (inFile->oLodHeaderBlock.vecElements.size() == 6)
-		{
-			inFile->oLodHeaderBlock.vecElements[0].fVisibilityDistance = 30.f;
-			inFile->oLodHeaderBlock.vecElements[1].fVisibilityDistance = 60.f;
-			inFile->oLodHeaderBlock.vecElements[2].fVisibilityDistance = 120.f;
-			inFile->oLodHeaderBlock.vecElements[3].fVisibilityDistance = 250.f;
-			inFile->oLodHeaderBlock.vecElements[4].fVisibilityDistance = 350.f;
-			inFile->oLodHeaderBlock.vecElements[5].fVisibilityDistance = 10000.f;
-		}
-
-		//inFile->oLodHeaderBlock.vecElements[1].fVisibilityDistance = 20.f;
-
-		auto exporter = RigidModelV2::File_Exporter_Common::create_empty();
-		exporter->setFileData(inFile);
-
-		std::wstring strDir = tools::GetFileFromFullPath(it.toStdWString());
-		strDir = LR"(c:\temp\RMV2\)" + strDir;
-		exporter->write_file(strDir);
-
-		auto debug_2 = 1;
-	}
-
-	int debug_1 = 1;
-}
 
 QRMV2Widget::QRMV2Widget(QWidget* parent)
 	: QWidget(parent)
@@ -93,7 +17,7 @@ QRMV2Widget::~QRMV2Widget()
 	int debug_a = 1;
 }
 
-bool QRMV2Widget::setRigidModel(ImporterLib::RigidModel::IRigidModelFile* _poFileIput)
+bool QRMV2Widget::setFile(ImporterLib::RigidModel::IRigidModelFile* _poFileIput)
 {
 #if 0
 	treeWidget->clear();
@@ -177,8 +101,8 @@ bool QRMV2Widget::setRigidModel(ImporterLib::RigidModel::IRigidModelFile* _poFil
 				pItem = pGroupItem;
 				bItemSet = true;
 			}
-}
-}
+		}
+	}
 
 	QWidget* pQ = new QWidget;
 	m_pPStackedWidget->addWidget(pQ);
@@ -191,7 +115,7 @@ bool QRMV2Widget::setRigidModel(ImporterLib::RigidModel::IRigidModelFile* _poFil
 	return true;
 }
 
-bool QRMV2Widget::setData_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile)
+bool QRMV2Widget::setFile_New(shared_ptr<RigidModelV2::Common::CommonFile> _spoCommonFile)
 {
 	if (!_spoCommonFile)
 	{
