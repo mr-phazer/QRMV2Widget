@@ -91,6 +91,12 @@ namespace RigidModelV2
 		{
 			switch (_MaterialID)
 			{
+			case ERigidMaterial::texture_combo:
+				return true;
+
+			case ERigidMaterial::decal_overlay:
+				return true;
+
 			case ERigidMaterial::tree_billboard_material:
 				return false;
 
