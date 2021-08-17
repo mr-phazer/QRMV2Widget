@@ -123,6 +123,9 @@ int main(int argc, char* argv[])
 	QShortcut* qpShortcut_SaveFile = new QShortcut(QKeySequence(QRMV2Widget::tr("Ctrl+S", "File|Save")),
 		g_poRmv2);
 
+	QShortcut* qpShortcut_FIX = new QShortcut(QKeySequence(QRMV2Widget::tr("Ctrl+F", "FIX")),
+		g_poRmv2);
+
 	QObject::connect(qpShortcut_OpenFile, &QShortcut::activated, [g_poRmv2]()
 		{
 			QString qstrPath = QFileDialog::getOpenFileName(g_poRmv2, "Open RMV2file", QString(),
@@ -168,6 +171,13 @@ int main(int argc, char* argv[])
 			ofstream fileOut(qstrPath.toStdWString(), ios::binary);
 			fileOut.write(qBuffer.data(), qBuffer.size());
 			fileOut.close();
+		}
+	);
+
+	QObject::connect(qpShortcut_FIX, &QShortcut::activated, [g_poRmv2]()
+		{
+			auto po = dynamic_cast<QRMV2Widget*>(g_poRmv2);
+			po->fixRMV2LodValues();
 		}
 	);
 
