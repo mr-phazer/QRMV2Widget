@@ -182,7 +182,7 @@ bool RigidModelV2::File_Exporter_Common::writeLods()
 		}
 		auto read = m_spoStream->tellp() - first;
 
-		int debug_1 = 1;
+		int debug_1 = 11;
 	}
 
 	return true;
