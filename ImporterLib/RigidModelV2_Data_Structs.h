@@ -91,12 +91,6 @@ namespace RigidModelV2
 		{
 			switch (_MaterialID)
 			{
-			case ERigidMaterial::texture_combo:
-				return true;
-
-			case ERigidMaterial::decal_overlay:
-				return true;
-
 			case ERigidMaterial::tree_billboard_material:
 				return false;
 
@@ -118,9 +112,6 @@ namespace RigidModelV2
 				return true;
 
 			case ERigidMaterial::weighted_dirtmap:
-				return true;
-
-			case ERigidMaterial::decal:
 				return true;
 
 			case ERigidMaterial::weighted_decal:
@@ -564,7 +555,7 @@ namespace RigidModelV2
 
 			//private:
 			bool m_bIsValid = false;
-			std::string m_strLastErrorString = "";
+			std::string m_strLastErrorString = "no operation perfomed yet";
 		};
 	};
 };
