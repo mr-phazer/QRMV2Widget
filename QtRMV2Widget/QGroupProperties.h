@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include "ui_QGroupProperties.h"
 #include "..\ImporterLib\IRigidModelmporter.h"
 #include "..\ImporterLib\RigidModelV2_Enums.h"

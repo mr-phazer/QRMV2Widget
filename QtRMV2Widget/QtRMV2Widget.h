@@ -1,9 +1,8 @@
 #pragma once
 
 #include <memory>
-#include <qwidget>
-#include <qmimedata.h>
-#include <qdir.h>
+#include <QtCore/qmimedata.h>
+#include <QtCore/qdir.h>
 
 #include <QtWidgets/qwidget.h>
 

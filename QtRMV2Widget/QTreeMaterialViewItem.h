@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include <QtWidgets/qlineedit.h>
 #include <QtWidgets/qtextedit.h>
 #include <QtWidgets/qFrame.h>

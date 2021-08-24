@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include "ui_QAlphaEditLine.h"
 #include <string>
 
@@ -11,12 +11,12 @@ class QAlphaEditLine : public QWidget, public Ui::QAlphaEditLine
 public:
 	void bindToData(uint32_t* pdwAlpha, uint32_t* pdwMask);
 
-	QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask,		
+	QAlphaEditLine(QWidget* parent, uint32_t* pdwAlpha, uint32_t* pdwMask,
 		std::string* pstrShaderName,
 		std::string* pstrMeshName,
 		std::string* pstrTexFolder
-		);
-	
+	);
+
 	~QAlphaEditLine();
 
 	uint32_t getAlpha() {
@@ -36,8 +36,6 @@ protected:
 	std::string* m_pstrShaderName = nullptr;
 	std::string* m_pstrMeshName = nullptr;
 	std::string* m_pstrTexFolder = nullptr;
-
-
 
 private slots:
 	void onTextActivated(const QString& text);

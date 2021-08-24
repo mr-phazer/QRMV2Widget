@@ -1,7 +1,7 @@
 #pragma once
 
-#include <QWidget.h>
-#include <qcombobox.h>
+#include <QtWidgets/QWidget.h>
+#include <QtWidgets/qcombobox.h>
 
 #include <QMenu.h>
 #include "ui_QTextureEditLine.h"

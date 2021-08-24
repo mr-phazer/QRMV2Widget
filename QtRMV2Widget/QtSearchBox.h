@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include "ui_QtSearchBox.h"
 
 class QtSearchBox : public QWidget, public Ui::QtSearchBox
@@ -8,6 +8,6 @@ class QtSearchBox : public QWidget, public Ui::QtSearchBox
 	Q_OBJECT
 
 public:
-	QtSearchBox(QWidget *parent = Q_NULLPTR);
+	QtSearchBox(QWidget* parent = Q_NULLPTR);
 	~QtSearchBox();
 };
