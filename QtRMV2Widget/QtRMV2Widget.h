@@ -34,6 +34,8 @@ public:
 	QRMV2Widget(QWidget* parent = Q_NULLPTR);
 	~QRMV2Widget();
 
+	void fixRMV2LodValues();
+
 #ifdef _DEBUG
 
 	void dragEnterEvent(QDragEnterEvent* event)

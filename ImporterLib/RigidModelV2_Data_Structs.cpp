@@ -53,8 +53,8 @@ void RigidModelV2::Common::CommonFile::updateFileFields_v5_v6()
 		oLodHeaderBlock.vecElements[lod].dwVerticesDataLength = vecLODs[lod].getVertexDataSize();
 
 		// if an lod distance is set us it, if not, use a default 100.0f (lod+1)
-		oLodHeaderBlock.vecElements[lod].fVisibilityDistance =
-			(vecLODs[lod].fLodDistance > 0.f) ? vecLODs[lod].fLodDistance : 100.0f * static_cast<float>(lod + 1);
+		/*oLodHeaderBlock.vecElements[lod].fVisibilityDistance =
+			(vecLODs[lod].fLodDistance > 0.f) ? vecLODs[lod].fLodDistance : 100.0f * static_cast<float>(lod + 1);*/
 
 		start_offset += vecLODs[lod].updateSize(); // update the group size and get the sum = LOD size, add it to offset
 	}
@@ -83,8 +83,8 @@ void RigidModelV2::Common::CommonFile::updateFileFields_v7_v8()
 		oLodHeaderBlock.vecElements[lod].dwVerticesDataLength = vecLODs[lod].getVertexDataSize();
 
 		// if an lod distance is set us it, if not, use a default 100.0f (lod+1)
-		oLodHeaderBlock.vecElements[lod].fVisibilityDistance =
-			(vecLODs[lod].fLodDistance > 0.f) ? vecLODs[lod].fLodDistance : 100.0f * static_cast<float>(lod + 1);
+		//HeaderBlock.vecElements[lod].fVisibilityDistance = vecLODs[lod].fLodDistance;
+		//ecLODs[lod].fLodDistance > 0.f) ? vecLODs[lod].fLodDistance : 100.0f * static_cast<float>(lod + 1);
 
 		oLodHeaderBlock.vecElements[lod].dwAuthoredLodNumber = lod;
 		oLodHeaderBlock.vecElements[lod].oQualityLevel = { 0 };

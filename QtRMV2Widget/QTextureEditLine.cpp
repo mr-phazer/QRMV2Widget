@@ -17,8 +17,8 @@ QTextureEditLine::QTextureEditLine(QWidget* parent, std::string* _pstrTexturePat
 		combonTextureType->addItem(TextureType::getStringFromId(i), i);
 	}
 	this->toolButton->setText("");
-	
-	comboBox_TexturePath->lineEdit()->setText( m_pstrTexturePath->c_str() );
+
+	comboBox_TexturePath->lineEdit()->setText(m_pstrTexturePath->c_str());
 
 	//comboBox_TexturePath->setCursorPosition(0);
 
@@ -26,15 +26,12 @@ QTextureEditLine::QTextureEditLine(QWidget* parent, std::string* _pstrTexturePat
 	QVariant qv = (uint32_t)*_pETextureType;
 	int index = combonTextureType->findData(qv);
 	combonTextureType->setCurrentIndex(index);
-		
 
 	makeConnections();
 
 	toolButton->setIcon(QIcon(":/Icons/dot_menu.png"));
 
 	connect(toolButton, &QToolButton::clicked, toolButton, &QToolButton::showMenu);
-	
-
 }
 
 QTextureEditLine::~QTextureEditLine()
@@ -59,11 +56,20 @@ void QTextureEditLine::makeConnections()
 	connect(comboBox_TexturePath->lineEdit(), &QLineEdit::textChanged, this, &QTextureEditLine::onTextEditingFinshed);
 	connect(toolButton, &QToolButton::clicked, this, [this](bool)
 		{
-			this->gridLayout->addWidget(new QtSearchBox(this), 1, 2);
+			if (!m_poSearchBox)
+			{
+				m_poSearchBox = new QtSearchBox(this);
+				this->gridLayout->addWidget(m_poSearchBox, 1, 2);
+			}
+			else
+			{
+				this->gridLayout->removeWidget(m_poSearchBox);
+				delete m_poSearchBox;
+				m_poSearchBox = nullptr;
+
+			}
 		}
-		
-		
-		);
+	);
 }
 
 //void QTextureEditLine::bindToData(std::string* _strTexturePath, ETextureType* _pETextureType)
