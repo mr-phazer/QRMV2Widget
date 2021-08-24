@@ -87,6 +87,9 @@ namespace RigidModelV2
 		};
 
 		// TODO: finish this
+		// TODO: finish this
+		// TODO: finish this
+		// TODO: finish this
 		static constexpr bool isKnownMaterial(ERigidMaterial _MaterialID)
 		{
 			switch (_MaterialID)
