@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QWidget>
+#include <QtWidgets\QWidget>
 #include "ui_QAlphaEditLine.h"
 #include <string>
 

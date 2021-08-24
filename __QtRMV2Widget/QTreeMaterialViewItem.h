@@ -2,11 +2,11 @@
 
 #include <memory>
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include <QtWidgets/qlineedit.h>
 #include <QtWidgets/qtextedit.h>
 #include <QtWidgets/qFrame.h>
-#include <qobject.h>
+#include <QtCore/qobject.h>
 
 #include "ui_QRMV2Widget.h"
 #include "ui_QRMV2Widget.h"

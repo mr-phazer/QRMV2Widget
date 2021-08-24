@@ -1,9 +1,9 @@
 #pragma once
 
-#include <QWidget.h>
-#include <qcombobox.h>
+#include <QtWidgets\QWidget>
+#include <QtWidgets\QComboBox>
 
-#include <QMenu.h>
+#include <QtWidgets\QMenu>
 #include "ui_QTextureEditLine.h"
 #include "..\ImporterLib\IRigidModelmporter.h"
 #include "..\ImporterLib\RigidModelV2_Enums.h"
